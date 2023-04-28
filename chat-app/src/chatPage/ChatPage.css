@@ -1,0 +1,114 @@
+.profileimg{
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#logout-btn{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#add-user-span{
+    float: right;
+    margin-top: 10px;
+}
+#add-user-image{
+    width: 50px;
+    height: 50px;
+}
+#message-window{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#contact-menu{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.contact-menu-image{
+    float:left;
+    padding-right: 10px;
+}
+.contact-menu-name{
+font-weight: bold;
+}
+.contact-menu-date{
+    color:lightslategray;   
+    float: right;
+}
+.chat{
+    background-color:#cccccc;
+}
+.left-align {
+    text-align: left;
+  }
+  
+  .right-align {
+    text-align: right;
+  }
+
+  .card-body{
+    overflow-y: scroll;
+    height: 427px;
+  }
+
+  .pad{
+    padding:8px;
+    font-weight: bold;
+  }
+  #top-users-head{
+    padding-top: inherit;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+  .messages {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+  
+  .yours {
+    align-items: flex-start;
+    padding-left: 10px;
+  }
+  
+  .yours .message {
+    margin-right: 25%;
+    background-color: #eee;
+    position: relative;
+  }
+  
+  .mine {
+    align-items: flex-end;
+    padding-right: 10px;
+  }
+  
+  .mine .message {
+    color: white;
+    margin-left: 25%;
+    background: #0085D1;
+    position: relative;
+  }
+  
+
+  input[type="text"] {
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+.chosen{
+    background-color: #cccccc;
+}
