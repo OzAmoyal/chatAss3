@@ -7,16 +7,16 @@ import RegisterFormSubmitButton from "./registerFormSubmitButton/RegisterFormSub
 import RegisterFormPicture from "./registerFormPicture/RegisterFormPicture";
 
 function RegisterForm(props) {
+  console.log(props.formData);
 
   return (
     <form>
     <RegisterFormUsername registered = {props.registered} formData={props.formData} setter={props.setFormData} ></RegisterFormUsername>
     <RegisterFormPassword formData={props.formData} setter={props.setFormData}></RegisterFormPassword>
-    <RegisterFormConfirmPassword></RegisterFormConfirmPassword>
-    <RegisterFormDisplayName></RegisterFormDisplayName>
-    <RegisterFormPicture></RegisterFormPicture>
+    <RegisterFormConfirmPassword formData={props.formData} setter={props.setFormData}></RegisterFormConfirmPassword>
+    <RegisterFormDisplayName ></RegisterFormDisplayName>
+    <RegisterFormPicture formData={props.formData} setter={props.setFormData}></RegisterFormPicture>
     <RegisterFormSubmitButton></RegisterFormSubmitButton>
-    
     </form>
 
   );
