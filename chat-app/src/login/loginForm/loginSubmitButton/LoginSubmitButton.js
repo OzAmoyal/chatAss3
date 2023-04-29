@@ -1,11 +1,10 @@
 function LoginSubmitButton(){
-return  <button
+return ( <button
                     type="submit"
                     className="btn btn-info text-white"
                     id="login-button"
-                    formAction="chat.html"
                   >
                     Login
-                  </button>
+                  </button>)
 }
 export default LoginSubmitButton;
