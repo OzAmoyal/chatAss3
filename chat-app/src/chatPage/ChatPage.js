@@ -1,24 +1,15 @@
 import "./ChatPage.css"
-import { Link } from 'react-router-dom';
+
 import nymar from "../images/nymar.jpg";
 import ronaldo from "../images/ronaldo.jpg";
 import messi from "../images/messi.jpg";
+import ChatLogoutButton from "./chatLogoutButton/ChatLogoutButton";
 
 function ChatPage(props){
   
     return (
         <>
-        <div className="row">
-          <div className="col" id="logout-btn">
-          <Link to="/login">
-            <button
-              className="btn btn-danger"
-            >
-              Logout
-            </button>
-            </Link>
-          </div>
-      </div>
+        <ChatLogoutButton authSetter={props.setAuthenticated}></ChatLogoutButton>
       <div className="row justify-content-center">
         <div className="col col-4" id="contact-menu">
           <div className="card">

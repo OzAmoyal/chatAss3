@@ -29,7 +29,7 @@ function App() {
           path="/" 
           element={
             authenticated !== null ? (
-              <ChatPage />
+              <ChatPage setAuthenticated={setAuthenticated} authenticated={authenticated} />
             ) : (
               <Login 
                 registered={registeredUsers} 
