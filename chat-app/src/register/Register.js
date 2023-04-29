@@ -10,8 +10,10 @@ function Register(props) {
   display: "",
   allowedSubmit: { username: false, password: false, confirm: false, display: false, picture: false },
   });
+  console.log(props.registered);
 
   return (
+    
     <div className="row justify-content-center">
       <div className="col-md-6 mt-4">
         <div className="card">
@@ -21,6 +23,7 @@ function Register(props) {
               registered={props.registered}
               formData={formData}
               setFormData={setFormData}
+              setRegisteredUsers={props.setRegisteredUsers}
             ></RegisterForm>
             <br />
             Already registered?

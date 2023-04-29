@@ -1,7 +1,11 @@
 import "./ChatPage.css"
 import { Link } from 'react-router-dom';
+import nymar from "../images/nymar.jpg";
+import ronaldo from "../images/ronaldo.jpg";
+import messi from "../images/messi.jpg";
 
 function ChatPage(props){
+  
     return (
         <>
         <div className="row">
@@ -20,7 +24,7 @@ function ChatPage(props){
           <div className="card">
             <div className="card-header">
               <span className="contact-menu-image">
-                <img className="profileimg" src="nymar.jpg" alt="image" />
+                <img className="profileimg" src={nymar} alt="nymar" />
               </span>
               <span className="contact-menu-name" id="top-users-head"> Users </span>
               <span id="add-user-span">
@@ -96,7 +100,7 @@ function ChatPage(props){
                 <li className="list-group-item chosen">
                   <div className="contact-menu-li">
                     <span className="contact-menu-image">
-                      <img className="profileimg" src="ronaldo.jpg" alt="image" />
+                      <img className="profileimg" src={ronaldo} alt="ronaldo" />
                     </span>
                     <span className="contact-menu-name"> John </span>
                     <span className="contact-menu-date"> 20.20.2020 15:56 </span>
@@ -106,7 +110,7 @@ function ChatPage(props){
                 <li className="list-group-item">
                   <div className="contact-menu-li">
                     <span className="contact-menu-image">
-                      <img className="profileimg" src="messi.jpg" alt="image" />
+                      <img className="profileimg" src={messi} alt="messi" />
                     </span>
                     <span className="contact-menu-name"> Jane </span>
                     <span className="contact-menu-date"> 20.20.2020 15:56 </span>
@@ -120,7 +124,7 @@ function ChatPage(props){
         <div className="col col-8" id="message-window">
           <div className="card">
             <div className="card-header">
-              <img className="profileimg" src="ronaldo.jpg" alt="image" />
+              <img className="profileimg" src={ronaldo} alt="ronaldo" />
               <span className="pad">John</span>
             </div>
             <div className="chat">

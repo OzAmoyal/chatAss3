@@ -12,7 +12,7 @@ function Login(props) {
             <div className="card">
               <div className="card-header bg-info text-white">Login</div>
               <div className="card-body">
-                <LoginForm username={username} password={password} usernameSetter={setUsername} passwordSetter={setPassword}></LoginForm>
+                <LoginForm authenticated={props.authenticated} setAuthenticated={props.setAuthenticated} registered={props.registered} username={username} password={password} usernameSetter={setUsername} passwordSetter={setPassword}></LoginForm>
                 <br />
                 Not registered? 
                 <Link to='/register'> Click here</Link>

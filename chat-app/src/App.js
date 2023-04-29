@@ -5,25 +5,47 @@ import Login from "./login/Login";
 import Register from "./register/Register";
 import ChatPage from "./chatPage/ChatPage";
 function App() {
+  const [authenticated, setAuthenticated] = useState(null);
+  console.log(authenticated)
   const [registeredUsers, setRegisteredUsers] = useState([
     {
       username: "user1",
       password: "password1",
+      users: ["user2", "user3", "user4"],
     },
+    {
+      username: "user2",
+      password: "password1",
+      users: ["user2", "user3", "user4"],
+    }
   ]);
   return (
     <BrowserRouter>
       <div className="container">
         {/*add logic to check if the user is logged in */}
         <Routes>
-          <Route path="/" exact Component={ChatPage} />
+          
+        <Route 
+          path="/" 
+          element={
+            authenticated !== null ? (
+              <ChatPage />
+            ) : (
+              <Login 
+                registered={registeredUsers} 
+                authenticated={authenticated} 
+                setAuthenticated={setAuthenticated} 
+              />
+            )
+          }
+        />
           <Route
             path="/login"
-            element={<Login registered={registeredUsers}></Login>}
+            element={<Login registered={registeredUsers} authenticated={authenticated} setAuthenticated={setAuthenticated}></Login>}
           ></Route>
           <Route
             path="/register"
-            element={<Register registered={registeredUsers}></Register>}
+            element={<Register registered={registeredUsers} setRegisteredUsers={setRegisteredUsers}></Register>}
           ></Route>
         </Routes>
       </div>

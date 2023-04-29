@@ -14,9 +14,9 @@ function RegisterForm(props) {
     <RegisterFormUsername registered = {props.registered} formData={props.formData} setter={props.setFormData} ></RegisterFormUsername>
     <RegisterFormPassword formData={props.formData} setter={props.setFormData}></RegisterFormPassword>
     <RegisterFormConfirmPassword formData={props.formData} setter={props.setFormData}></RegisterFormConfirmPassword>
-    <RegisterFormDisplayName ></RegisterFormDisplayName>
+    <RegisterFormDisplayName formData={props.formData} setter={props.setFormData}></RegisterFormDisplayName>
     <RegisterFormPicture formData={props.formData} setter={props.setFormData}></RegisterFormPicture>
-    <RegisterFormSubmitButton></RegisterFormSubmitButton>
+    <RegisterFormSubmitButton formData={props.formData} registered = {props.registered} setRegisteredUsers={props.setRegisteredUsers}></RegisterFormSubmitButton>
     </form>
 
   );
