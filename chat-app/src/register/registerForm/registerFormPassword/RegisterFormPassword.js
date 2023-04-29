@@ -35,14 +35,31 @@ function RegisterFormPassword({ formData, setter }) {
                            "Password should be at least 8 characters long",
                           "Password should contain at least one number.",
                           "Password should contain at least one letter"].join("<br>")
+        setter(prevState => ({
+        ...prevState,
+        allowedSubmit: {
+        ...prevState.allowedSubmit,
+        password: false
+      }}))
     }
     else if (allValid) {
-      
       element.textContent = 'your password is ok';
+      setter(prevState => ({
+        ...prevState,
+        allowedSubmit: {
+          ...prevState.allowedSubmit,
+          password: true
+        }}))
     } else {
       element.innerHTML = "Password requirements:<br>" + passwordErrors.join("<br>");
+      setter(prevState => ({
+        ...prevState,
+        allowedSubmit: {
+          ...prevState.allowedSubmit,
+          password: false
+        }}))
     }
-  }, [passwordErrors]);
+  }, [passwordErrors, setter]);
 
   return (
     <div id="passwordField" className="mb-3">

@@ -6,6 +6,8 @@ function Register(props) {
   const [formData, setFormData] = useState({
   username: "",
   password: "",
+  picture: "",
+  display: "",
   allowedSubmit: { username: false, password: false, confirm: false, display: false, picture: false },
   });
 
