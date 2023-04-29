@@ -11,7 +11,7 @@ function RegisterForm(props) {
   return (
     <form>
     <RegisterFormUsername registered = {props.registered} formData={props.formData} setter={props.setFormData} ></RegisterFormUsername>
-    <RegisterFormPassword passwordValue={props.password} setter={props.passwordSetter}></RegisterFormPassword>
+    <RegisterFormPassword formData={props.formData} setter={props.setFormData}></RegisterFormPassword>
     <RegisterFormConfirmPassword></RegisterFormConfirmPassword>
     <RegisterFormDisplayName></RegisterFormDisplayName>
     <RegisterFormPicture></RegisterFormPicture>
