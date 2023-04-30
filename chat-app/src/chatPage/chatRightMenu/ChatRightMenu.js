@@ -14,7 +14,7 @@ if(props.selectedUser===null){
 }
   
 return (
-<div className="col col-8" id="message-window">
+<div className="col col-8" >
           <div className="card">
           <ChatCurrentChatHeader selectedUser={props.selectedUser}></ChatCurrentChatHeader>
           <ChatBody selectedUser={props.selectedUser} authenticated={props.authenticated}></ChatBody>

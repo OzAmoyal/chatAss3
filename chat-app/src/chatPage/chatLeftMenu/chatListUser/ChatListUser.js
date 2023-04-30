@@ -1,5 +1,16 @@
 
+import React, { useState } from "react";
+import './ChatListUser.css'
 function ChatListUser({user, registered, setSelectedUser}) {
+  const [hovered, setHovered] = useState(false);
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
     const latestTimestamp = user.messages[user.messages.length - 1].timestamp;
     const lastMessage = user.messages[user.messages.length - 1].content;
     
@@ -10,7 +21,7 @@ function ChatListUser({user, registered, setSelectedUser}) {
         setSelectedUser(matchedUserList);
     }
   return (
-    <li className="list-group-item" onClick={handleClick} >
+    <li className={`list-group-item ${hovered ? 'chosen' : ''}`}  onClick={handleClick}  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="contact-menu-li">
         <span className="contact-menu-image">
           <img className="profileimg" src={matchedUser.picture} alt={user.display} />

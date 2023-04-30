@@ -1,7 +1,6 @@
 import nymar from "../../images/nymar.jpg";
 import ronaldo from "../../images/ronaldo.jpg";
 import messi from "../../images/messi.jpg";
-import $ from 'jquery';
 import ChatListUser from './chatListUser/ChatListUser';
 
 
@@ -17,8 +16,8 @@ function ChatLeftMenu(props){
         <span className="contact-menu-name" id="top-users-head"> Users </span>
         <span id="add-user-span">
           <svg
-            data-toggle="modal"
-            data-target="#exampleModalCenter"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModalCenter"
             xmlns="http://www.w3.org/2000/svg"
             width="30"
             height="30"
