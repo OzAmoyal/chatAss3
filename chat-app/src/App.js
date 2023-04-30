@@ -23,6 +23,7 @@ function App() {
     <BrowserRouter>
       <div className="container">
         {/*add logic to check if the user is logged in */}
+        {/*add logic to check if the usacader is logged in */}
         <Routes>
           
         <Route 
