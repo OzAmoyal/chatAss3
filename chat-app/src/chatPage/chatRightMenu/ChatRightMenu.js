@@ -1,6 +1,3 @@
-import nymar from "../../images/nymar.jpg";
-import ronaldo from "../../images/ronaldo.jpg";
-import messi from "../../images/messi.jpg";
 import ChatCurrentChatHeader from "./chatCurrentChatHeader/ChatCurrentChatHeader";
 import ChatInputMessage from "./chatInputMessage/ChatInputMessage";
 import ChatBody from "./chatBody/ChatBody";

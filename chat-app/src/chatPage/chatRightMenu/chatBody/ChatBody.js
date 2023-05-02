@@ -1,20 +1,19 @@
 import ChatBodyMessage from "./chatBodyMessage.js/chatBodyMessage";
-import { useState} from "react";
+
 
 function ChatBody({ selectedUser, authenticated }) {
   const talkingTo = authenticated.users.find(
     (user) => user.username === selectedUser.username
   );
   const arrayOfMessages = talkingTo.messages;
-  const [messages, setMessages] = useState(arrayOfMessages);
 
-  messages.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+  arrayOfMessages.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
 
   
 
   return (
     <div className="chat" id="message-window">
-      {messages.map((message) => (
+      {arrayOfMessages.map((message) => (
         <ChatBodyMessage
           key={message.timestamp}
           messageContent={message.content}

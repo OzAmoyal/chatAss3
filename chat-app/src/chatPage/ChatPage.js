@@ -1,8 +1,4 @@
 import "./ChatPage.css"
-
-import nymar from "../images/nymar.jpg";
-import ronaldo from "../images/ronaldo.jpg";
-import messi from "../images/messi.jpg";
 import ChatLogoutButton from "./chatLogoutButton/ChatLogoutButton";
 import ChatLeftMenu from "./chatLeftMenu/ChatLeftMenu"
 import ChatRightMenu from "./chatRightMenu/ChatRightMenu";

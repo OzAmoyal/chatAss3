@@ -1,5 +1,5 @@
 
-import ronaldo from "../../../images/ronaldo.jpg";
+
 
 function ChatCurrentChatHeader({selectedUser}){
     return(

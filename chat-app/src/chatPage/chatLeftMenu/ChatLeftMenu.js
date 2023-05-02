@@ -1,5 +1,3 @@
-import ronaldo from "../../images/ronaldo.jpg";
-import messi from "../../images/messi.jpg";
 import ChatListUser from './chatListUser/ChatListUser';
 import ChatLeftHeader from './chatLeftHeader/ChatLeftHeader'
 
