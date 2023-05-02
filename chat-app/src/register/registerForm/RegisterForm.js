@@ -7,7 +7,6 @@ import RegisterFormSubmitButton from "./registerFormSubmitButton/RegisterFormSub
 import RegisterFormPicture from "./registerFormPicture/RegisterFormPicture";
 
 function RegisterForm(props) {
-  console.log(props.formData);
 
   return (
     <form>

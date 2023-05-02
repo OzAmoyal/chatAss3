@@ -15,7 +15,7 @@ function Login(props) {
                 <LoginForm authenticated={props.authenticated} setAuthenticated={props.setAuthenticated} registered={props.registered} username={username} password={password} usernameSetter={setUsername} passwordSetter={setPassword}></LoginForm>
                 <br />
                 Not registered? 
-                <Link to='/register'> Click here</Link>
+                <Link to='/register'> Click here </Link>
                  to Register
               </div>
             </div>

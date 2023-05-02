@@ -1,16 +1,17 @@
 import ChatCurrentChatHeader from "./chatCurrentChatHeader/ChatCurrentChatHeader";
 import ChatInputMessage from "./chatInputMessage/ChatInputMessage";
 import ChatBody from "./chatBody/ChatBody";
-
-
+import welcome_back from "./welcome_back_gif.gif";
+import "./ChatRightMenu.css"
 function ChatRightMenu({selectedUser, setAuthenticated,authenticated}){
 
 
 if(selectedUser===null){
   return(
-  <div className="col col-8" id="message-window">
-    <h1> press a user to start chatting</h1>
-    </div>);
+  <div className="col col-8 gif-container">
+<img src={welcome_back} className="gif" alt="welcome_back_GIF" />
+    </div>
+    );
   }
 
 const handleSendMessage = (event) => {
@@ -23,7 +24,6 @@ const handleSendMessage = (event) => {
     receiver: selectedUser.username,
     timestamp: time
   };
-  
   const updatedAuthenticated = { ...authenticated };
   const otherUserIndex = updatedAuthenticated.users.findIndex(
     (user) => user.username === selectedUser.username
@@ -31,7 +31,6 @@ const handleSendMessage = (event) => {
   const thisUserIndex = selectedUser.users.findIndex(
     (user) => user.username === authenticated.username
   );
-  
   updatedAuthenticated.users[otherUserIndex].messages.push(newMessage);
   selectedUser.users[thisUserIndex].messages.push(newMessage);
   

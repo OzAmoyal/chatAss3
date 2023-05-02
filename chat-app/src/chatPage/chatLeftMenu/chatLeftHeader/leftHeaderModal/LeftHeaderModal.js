@@ -1,5 +1,40 @@
-function LeftHeaderModal(){
-    return( <span id="add-user-span">
+import { useRef,useState } from "react";
+import AddUserError from "./addUserError/AddUserError"
+function LeftHeaderModal({authenticated, setAuthenticated, registered}){
+  const errorMessage = useRef("");
+  const [error,setError]=useState("")
+
+
+  const handleSubmit=function(event){
+    event.preventDefault()
+
+    const username=event.target.name.value
+    if (username==="") {
+      setError("please enter username");
+      return
+    }
+    if (!registered.some(user=>user.username===username)) {
+      setError("username not exists")
+      return
+    }
+    if(authenticated.users.some(user=>user.username===username)){
+      setError("you already have a chat with this user")
+      return
+    }
+    if(username===authenticated.username){
+      setError("you can't chat with yourself")
+      return
+    }
+    setError("")
+    const userChosen= registered.find(user=>user.username===username)
+    
+    authenticated.users.push({username:userChosen.username, messages:[]})
+    userChosen.users.push({username:authenticated.username, messages:[]})
+    setAuthenticated({...authenticated})
+    event.target.name.value=""
+  }
+    return(
+       <span id="add-user-span">
     <svg
       data-bs-toggle="modal"
       data-bs-target="#exampleModalCenter"
@@ -41,13 +76,17 @@ function LeftHeaderModal(){
             >
             </button>
           </div>
+          <form onSubmit={handleSubmit}>
           <div className="modal-body">
+            
             <input
               type="text"
               id="name"
               name="name"
-              placeholder="Contact's identifier"
+              placeholder="Contact's Username"
             />
+            <AddUserError errorMessage={errorMessage} error={error}></AddUserError>
+
           </div>
           <div className="modal-footer">
             <button
@@ -57,10 +96,12 @@ function LeftHeaderModal(){
             >
               Close
             </button>
-            <button type="button" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary">
               Add
             </button>
+            
           </div>
+          </form>
         </div>
       </div>
     </div>

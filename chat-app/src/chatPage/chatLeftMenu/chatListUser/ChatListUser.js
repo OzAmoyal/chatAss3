@@ -10,19 +10,19 @@ function ChatListUser({user, registered, setSelectedUser}) {
   const handleMouseLeave = () => {
     setHovered(false);
   };
-
-
+  let latestTimestamp=""
+  let lastMessage=""
+  if (user.messages.length !== 0) {
   const sortedMessages = user.messages.sort(function(a, b) {
     return b.timestamp - a.timestamp; 
   });
 
-    const latestTimestamp = sortedMessages[0].timestamp.toLocaleString();
-    const lastMessage = sortedMessages[0].content;
-    
+    latestTimestamp = sortedMessages[0].timestamp.toLocaleString();
+    lastMessage = sortedMessages[0].content;
+}
     const matchedUser = registered.find((registeredUser) => registeredUser.username === user.username);
     const handleClick = () => {
         const matchedUserList = registered.find((registeredUser) => registeredUser.username === user.username);
-        console.log(matchedUserList);
         setSelectedUser(matchedUserList);
     }
   return (

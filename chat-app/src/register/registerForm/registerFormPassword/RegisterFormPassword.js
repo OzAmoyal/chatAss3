@@ -72,7 +72,7 @@ function RegisterFormPassword({ formData, setter }) {
         required
         onChange={handlePasswordChange}
       />
-      <span id="passwordError" className="errorField">
+      <span id="passwordError" className={passwordErrors.length===0?'':'errorField'}>
        </span>
     </div>
   );
