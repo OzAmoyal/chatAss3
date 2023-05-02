@@ -20,18 +20,36 @@ function App() {
         {
           username: "user2",
           messages: [
-            { 
-              content: "Hello, user2!",
-              sender: "user1",
-              receiver: "user2",
-              timestamp: "2022-05-01 12:30:45"
-            },
             {
-              content: "How are you?",
+              content: "Hi, user1!",
               sender: "user2",
               receiver: "user1",
-              timestamp: "2022-05-01 12:31:22"
+              timestamp: "2022-05-01 12:32:15"
             },
+            {
+              content: "I'm good, thanks. How about you?",
+              sender: "user1",
+              receiver: "user2",
+              timestamp: "2022-05-01 12:33:09"
+            },
+            {
+              content: "ani yeled gadol",
+              sender: "user2",
+              receiver: "user1",
+              timestamp: "2022-05-01 14:32:15"
+            },
+            {
+              content: "dammmm!!",
+              sender: "user1",
+              receiver: "user2",
+              timestamp: "2022-05-01 15:32:15"
+            },
+            {
+              content: "toda raba gever",
+              sender: "user2",
+              receiver: "user1",
+              timestamp: "2022-05-01 17:32:15"
+            }
           ]
         }]
       },
@@ -55,6 +73,24 @@ function App() {
                 sender: "user1",
                 receiver: "user2",
                 timestamp: "2022-05-01 12:33:09"
+              },
+              {
+                content: "ani yeled gadol",
+                sender: "user2",
+                receiver: "user1",
+                timestamp: "2022-05-01 14:32:15"
+              },
+              {
+                content: "dammmm!!",
+                sender: "user1",
+                receiver: "user2",
+                timestamp: "2022-05-01 15:32:15"
+              },
+              {
+                content: "toda raba gever",
+                sender: "user2",
+                receiver: "user1",
+                timestamp: "2022-05-01 17:32:15"
               }
             ]
           }

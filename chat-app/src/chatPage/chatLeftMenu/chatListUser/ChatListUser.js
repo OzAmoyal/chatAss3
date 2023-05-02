@@ -10,9 +10,10 @@ function ChatListUser({user, registered, setSelectedUser}) {
   const handleMouseLeave = () => {
     setHovered(false);
   };
+  const sortedMessages = user.messages.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
 
-    const latestTimestamp = user.messages[user.messages.length - 1].timestamp;
-    const lastMessage = user.messages[user.messages.length - 1].content;
+    const latestTimestamp = sortedMessages[0].timestamp;
+    const lastMessage = sortedMessages[0].content;
     
     const matchedUser = registered.find((registeredUser) => registeredUser.username === user.username);
     const handleClick = () => {

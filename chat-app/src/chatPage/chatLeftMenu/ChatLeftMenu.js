@@ -10,7 +10,7 @@ function ChatLeftMenu(props){
     return  (
     <div className="col col-4" id="contact-menu">
     <div className="card">
-      <ChatLeftHeader></ChatLeftHeader>
+      <ChatLeftHeader authenticated={props.authenticated}></ChatLeftHeader>
       <div className="card-body">
         <ul className="list-group">
           {props.authenticated.users.map(user => (
