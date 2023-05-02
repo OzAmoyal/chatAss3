@@ -1,0 +1,12 @@
+.gif-container {
+    border-radius: 20px;
+    overflow: hidden;
+    border-width: 10px;
+
+  }
+  
+  .gif {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: plus-lighter;
+  }

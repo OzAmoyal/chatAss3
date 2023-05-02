@@ -10,7 +10,6 @@ function Register(props) {
   display: "",
   allowedSubmit: { username: false, password: false, confirm: false, display: false, picture: false },
   });
-  console.log(props.registered);
 
   return (
     
