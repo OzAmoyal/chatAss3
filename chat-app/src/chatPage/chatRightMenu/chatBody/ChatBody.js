@@ -7,8 +7,9 @@ function ChatBody({ selectedUser, authenticated }) {
   );
   const arrayOfMessages = talkingTo.messages;
 
-  arrayOfMessages.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
-
+   arrayOfMessages.sort(function(a, b) {
+    return b.timestamp - a.timestamp;
+  });
   
 
   return (

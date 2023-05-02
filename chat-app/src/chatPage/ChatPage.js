@@ -14,7 +14,7 @@ function ChatPage(props){
         <ChatLogoutButton authSetter={props.setAuthenticated}></ChatLogoutButton>
       <div className="row justify-content-center">
        <ChatLeftMenu setSelectedUser={setSelectedUser} authenticated={props.authenticated} registered={props.registered}></ChatLeftMenu>
-       <ChatRightMenu selectedUser={selectedUser} setAuthenticated={props.setAuthenticated} authenticated={props.authenticated} registered={props.registeredUsers} setter={props.setRegisteredUsers}></ChatRightMenu>
+       <ChatRightMenu selectedUser={selectedUser} setAuthenticated={props.setAuthenticated} authenticated={props.authenticated}></ChatRightMenu>
       </div>
         </>
     );

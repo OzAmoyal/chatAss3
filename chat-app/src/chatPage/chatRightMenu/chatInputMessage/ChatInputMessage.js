@@ -8,7 +8,7 @@ function ChatInputMessage() {
         aria-label="Recipient's username" aria-describedby="button-addon2"></input>
     
       <div>
-        <button className="btn btn-primary" type="button" id="button-addon2">
+        <button className="btn btn-primary" type="submit" id="button-addon2">
           Send
         </button>
       </div>

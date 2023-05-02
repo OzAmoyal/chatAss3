@@ -9,7 +9,7 @@ import messi from "./images/messi.jpg"
 
 function App() {
   const [authenticated, setAuthenticated] = useState(null);
-  console.log(authenticated)
+  //console.log(authenticated)
   const [registeredUsers, setRegisteredUsers] = useState([
     {
       username: "user1",
@@ -24,31 +24,31 @@ function App() {
               content: "Hi, user1!",
               sender: "user2",
               receiver: "user1",
-              timestamp: "2022-05-01 12:32:15"
+              timestamp: new Date("2022-05-01T12:34:14")
             },
             {
               content: "I'm good, thanks. How about you?",
               sender: "user1",
               receiver: "user2",
-              timestamp: "2022-05-01 12:33:09"
+              timestamp: new Date("2022-05-01T12:32:15")
             },
             {
               content: "ani yeled gadol",
               sender: "user2",
               receiver: "user1",
-              timestamp: "2022-05-01 14:32:15"
+              timestamp: new Date("2022-05-01T12:34:15")
             },
             {
               content: "dammmm!!",
               sender: "user1",
               receiver: "user2",
-              timestamp: "2022-05-01 15:32:15"
+              timestamp: new Date("2022-05-01T12:35:15")
             },
             {
               content: "toda raba gever",
               sender: "user2",
               receiver: "user1",
-              timestamp: "2022-05-01 17:32:15"
+              timestamp: new Date("2022-05-01T12:40:15")
             }
           ]
         }]
@@ -66,67 +66,31 @@ function App() {
                 content: "Hi, user1!",
                 sender: "user2",
                 receiver: "user1",
-                timestamp: "2022-05-01 12:32:15"
+                timestamp: new Date("2022-05-01T12:39:15")
               },
               {
                 content: "I'm good, thanks. How about you?",
                 sender: "user1",
                 receiver: "user2",
-                timestamp: "2022-05-01 12:33:09"
+                timestamp: new Date("2022-05-01T12:44:15")
               },
               {
                 content: "ani yeled gadol",
                 sender: "user2",
                 receiver: "user1",
-                timestamp: "2022-05-01 14:32:15"
+                timestamp: new Date("2022-05-01T12:54:15")
               },
               {
                 content: "dammmm!!",
                 sender: "user1",
                 receiver: "user2",
-                timestamp: "2022-05-01 15:32:15"
+                timestamp: new Date("2022-05-01T12:04:15")
               },
               {
                 content: "toda raba gever",
                 sender: "user2",
                 receiver: "user1",
-                timestamp: "2022-05-01 17:32:15"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "username": "user3",
-        "password": "password3",
-        "display": "user3",
-        "picture": "https://example.com/user3.png",
-        "users": [
-          {
-            "username": "user1",
-            "messages": [
-              {
-                "content": "Hello, user1!",
-                "sender": "user3",
-                "receiver": "user1",
-                "timestamp": "2022-05-01 12:30:45"
-              },
-              {
-                "content": "How are you?",
-                "sender": "user1",
-                "receiver": "user3",
-                "timestamp": "2022-05-01 12:31:22"
-              }
-            ]
-          },
-          {
-            "username": "user2",
-            "messages": [
-              {
-                "content": "Hi, user2!",
-                "sender": "user3",
-                "receiver": "user2",
-                "timestamp": "2022-05-01 12:32:12"
+                timestamp: new Date("2022-05-01T13:39:15")
               }
             ]
           }
