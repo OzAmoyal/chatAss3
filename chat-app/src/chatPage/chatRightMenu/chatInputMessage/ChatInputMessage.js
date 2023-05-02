@@ -1,13 +1,14 @@
 function ChatInputMessage() {
   return (
-    <div className="input-group">
+    <div className="input-group mb-3">
       <input
         type="text"
         className="form-control"
         placeholder="Type your message..."
-      />
+        aria-label="Recipient's username" aria-describedby="button-addon2"></input>
+    
       <div>
-        <button className="btn btn-primary" type="button">
+        <button className="btn btn-primary" type="button" id="button-addon2">
           Send
         </button>
       </div>
