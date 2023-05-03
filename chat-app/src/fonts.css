@@ -1,0 +1,28 @@
+@font-face {
+    font-family:SFproM;
+    src: url(./fonts/SF-Pro-Rounded-Medium.ttf);
+  }
+  @font-face {
+    font-family:SFproB;
+    src: url(./fonts/SF-Pro-Rounded-Bold.ttf);
+  }
+  @font-face {
+    font-family:SFproR;
+    src: url(./fonts/SF-Pro-Rounded-Regular.ttf);
+  }
+  @font-face {
+    font-family:SFproL;
+    src: url(./fonts/SF-Pro-Rounded-Light.ttf);
+  }
+  .SFProB{
+    font-family:SFproB; 
+  }
+  .SFProR{
+    font-family:SFproR; 
+  }
+  .SFProM{
+    font-family:SFproM; 
+  }
+  .SFProL{
+    font-family:SFproL; 
+  }

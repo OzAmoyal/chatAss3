@@ -56,7 +56,6 @@ font-weight: bold;
 
   .pad{
     padding:8px;
-    font-weight: bold;
   }
   #top-users-head{
     padding-top: inherit;
@@ -86,7 +85,7 @@ font-weight: bold;
   
   .yours .message {
     margin-right: 25%;
-    background-color: #eee;
+    background-color: #f1f0ee;
     position: relative;
   }
   
@@ -98,7 +97,7 @@ font-weight: bold;
   .mine .message {
     color: white;
     margin-left: 25%;
-    background: #0085D1;
+    background: #2ebda9;
     position: relative;
   }
   
