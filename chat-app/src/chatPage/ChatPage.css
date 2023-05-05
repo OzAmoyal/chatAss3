@@ -33,13 +33,14 @@
 }
 .contact-menu-name{
 font-weight: bold;
+font-size: large;
 }
 .contact-menu-date{
     color:lightslategray;   
     float: right;
 }
 .chat{
-    background-color:#cccccc;
+    background-color:#3970bd;
 }
 .left-align {
     text-align: left;
@@ -56,12 +57,13 @@ font-weight: bold;
 
   .pad{
     padding:8px;
-    font-weight: bold;
   }
   #top-users-head{
     padding-top: inherit;
     display: inline-block;
     vertical-align: middle;
+    font-size: x-large;
+    font-weight: bold;
   }
 
 
@@ -74,8 +76,9 @@ font-weight: bold;
   .message {
     border-radius: 20px;
     padding: 8px 15px;
-    margin-top: 5px;
+    margin-top: -20px;
     margin-bottom: 5px;
+    font-size: large;
     display: inline-block;
   }
   
@@ -86,7 +89,8 @@ font-weight: bold;
   
   .yours .message {
     margin-right: 25%;
-    background-color: #eee;
+    background-color: #363637;
+    color: white;
     position: relative;
   }
   
@@ -98,7 +102,7 @@ font-weight: bold;
   .mine .message {
     color: white;
     margin-left: 25%;
-    background: #0085D1;
+    background: #3970bd;
     position: relative;
   }
   
