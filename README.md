@@ -14,19 +14,13 @@ This repository contains a chatbot created using HTML, CSS, Bootstrap and JS, an
 ## Screenshots
 
 ### Register page
-<p align="left">
-  <img width="700"  src="https://github.com/TopazAvraham/IntroductionToCS-University-C-programming/blob/master/Screenshots/55555.png?raw=true">
-</p>
+ ![image|400](https://user-images.githubusercontent.com/93612510/236449333-dc6534d6-e7df-4233-8f31-811270ad7a12.png)
 
 ### Login page
-<p align="left">
-  <img width="700"  src="https://github.com/TopazAvraham/IntroductionToCS-University-C-programming/blob/master/Screenshots/66666.png?raw=true">
-</p>
+ ![image|400](https://user-images.githubusercontent.com/93612510/236449251-fde7723f-38aa-4bce-a9b2-7af7e954c7cd.png)
 
 ### Chat page
-<p align="left">
-  <img width="700"  src="https://github.com/TopazAvraham/IntroductionToCS-University-C-programming/blob/master/Screenshots/77777.png?raw=true">
-</p>
+ ![image|400](https://user-images.githubusercontent.com/93612510/236449017-2860f855-cb1c-468e-b2dc-b79e9fc142c1.png)
 
 
 
