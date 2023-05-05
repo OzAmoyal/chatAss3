@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import RegisterForm from "./registerForm/RegisterForm";
-
+import "./Register.css";
 function Register(props) {
   const [formData, setFormData] = useState({
   username: "",
@@ -16,7 +16,7 @@ function Register(props) {
     <div className="row justify-content-center">
       <div className="col-md-6 mt-4">
         <div className="card">
-          <div className="card-header bg-info text-white">Register</div>
+          <div className="card-header bg-secondary text-white">Register</div>
           <div className="card-body">
             <RegisterForm
               registered={props.registered}

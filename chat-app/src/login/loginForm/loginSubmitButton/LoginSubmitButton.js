@@ -1,7 +1,7 @@
 function LoginSubmitButton(){
 return ( <button
                     type="submit"
-                    className="btn btn-info text-white"
+                    className="btn btn-secondary text-white"
                     id="login-button"
                   >
                     Login

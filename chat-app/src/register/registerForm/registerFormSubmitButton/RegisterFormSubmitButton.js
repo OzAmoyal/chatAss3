@@ -7,7 +7,8 @@ function RegisterFormSubmitButton({ formData, registered, setRegisteredUsers}) {
     return (
         <button
             type="submit"
-            className="btn btn-info text-white"
+            id="register-button"
+            className="btn btn-secondary text-white"
             disabled={isButtonDisabled}
         >
             Submit

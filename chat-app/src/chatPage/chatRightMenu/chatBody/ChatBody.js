@@ -1,3 +1,4 @@
+import './ChatBody.css'
 import ChatBodyMessage from "./chatBodyMessage.js/chatBodyMessage";
 
 

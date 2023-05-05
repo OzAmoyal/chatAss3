@@ -3,17 +3,17 @@ import ChatInputMessage from "./chatInputMessage/ChatInputMessage";
 import ChatBody from "./chatBody/ChatBody";
 import welcome_back from "./welcome_back_gif.gif";
 import "./ChatRightMenu.css"
+import { useState } from 'react';
+
 function ChatRightMenu({selectedUser, setAuthenticated,authenticated}){
-
-
-if(selectedUser===null){
+  const[message, setMessage] = useState(true);
+  if(selectedUser===null){
   return(
   <div className="col col-8 gif-container">
 <img src={welcome_back} className="gif" alt="welcome_back_GIF" />
     </div>
     );
   }
-
 const handleSendMessage = (event) => {
   event.preventDefault();
   const time = new Date();
@@ -37,6 +37,7 @@ const handleSendMessage = (event) => {
   setAuthenticated(updatedAuthenticated);
   
   event.target[0].value = "";
+  setMessage(true);
 };
 
 return (
@@ -47,7 +48,7 @@ return (
           </div>
           <form onSubmit={handleSendMessage}>
 
-        <ChatInputMessage ></ChatInputMessage>
+        <ChatInputMessage message={message} setMessage={setMessage}></ChatInputMessage>
         </form>
         </div>
         );

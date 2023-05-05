@@ -13,6 +13,12 @@
 #password{
     font-size: large;
 }
-#login-button{
+#register-button{
+    font-size: large;
+}
+#Display{
+    font-size: large;
+}
+#confirm-password{
     font-size: large;
 }
