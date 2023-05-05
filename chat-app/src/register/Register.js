@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import RegisterForm from "./registerForm/RegisterForm";
 import "./Register.css";
+import { useNavigate } from 'react-router-dom';
+
 function Register(props) {
   const [formData, setFormData] = useState({
   username: "",
@@ -10,7 +12,10 @@ function Register(props) {
   display: "",
   allowedSubmit: { username: false, password: false, confirm: false, display: false, picture: false },
   });
-
+  const navigate = useNavigate();
+if(props.authenticated!==null){
+navigate('/');
+}
   return (
     
     <div className="row justify-content-center">

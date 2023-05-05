@@ -1,11 +1,14 @@
 import "./Login.css";
 import LoginForm from "./loginForm/LoginForm"
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 function Login(props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-  
+    const navigate = useNavigate();
+  if(props.authenticated!==null){
+  navigate('/');
+}
   return (
         <div className="row justify-content-center">
           <div className="col-md-6 mt-4">
