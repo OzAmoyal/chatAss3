@@ -19,9 +19,34 @@ function RegisterFormPassword({ formData, setter }) {
       errors.push("Password should contain at least one letter.");
     }
   
-
     setPasswordErrors(errors);
     setter({ ...formData, password });
+
+    // Check if Confirm Password field is valid
+    const confirm = formData.confirm;
+    console.log(confirm)
+    const confirmErrorElement = document.getElementById("confirmPasswordError");
+    if (confirm !== "" && confirm !== password) {
+      console.log("not similar")
+      confirmErrorElement.textContent = "Passwords are not identical";
+      setter(prevState => ({
+        ...prevState,
+        allowedSubmit: {
+          ...prevState.allowedSubmit,
+          confirm: false
+        }
+      }));
+    } else {
+      console.log("similar")
+      confirmErrorElement.textContent = "";
+      setter(prevState => ({
+        ...prevState,
+        allowedSubmit: {
+          ...prevState.allowedSubmit,
+          confirm: true
+        }
+      }));
+    }
   };
 
   useEffect(() => {
