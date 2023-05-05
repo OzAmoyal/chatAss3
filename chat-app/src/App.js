@@ -36,7 +36,7 @@ function App() {
           ></Route>
           <Route
             path="/register"
-            element={<Register registered={registeredUsers} setRegisteredUsers={setRegisteredUsers}></Register>}
+            element={<Register authenticated={authenticated} registered={registeredUsers} setRegisteredUsers={setRegisteredUsers}></Register>}
           ></Route>
         </Routes>
       </div>
