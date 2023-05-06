@@ -10,6 +10,7 @@ function Register(props) {
   password: "",
   picture: "",
   display: "",
+  confirm: "",
   allowedSubmit: { username: false, password: false, confirm: false, display: false, picture: false },
   });
   const navigate = useNavigate();
