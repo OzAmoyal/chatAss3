@@ -1,5 +1,5 @@
 # Chat-Application
-
+3
 
 ## Introduction
 This repository contains a chatbot created using HTML, CSS, Bootstrap and JS, and using React framework. The chatbot has three pages: login.html, register.html, and chat.html, which are consist of many react components, all with their corresponding CSS, JS files.
