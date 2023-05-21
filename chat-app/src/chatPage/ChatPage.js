@@ -5,9 +5,9 @@ import ChatRightMenu from "./chatRightMenu/ChatRightMenu";
 import { useState } from "react";
 
 
-function ChatPage(props){
+async function ChatPage(props){
   const [selectedUser, setSelectedUser] = useState(null);
-
+  console.log(props.authenticated);
   
     return (
         <>

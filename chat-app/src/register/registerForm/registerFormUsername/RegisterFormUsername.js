@@ -6,11 +6,11 @@ function RegisterFormUsername({ registered, formData, setter }) {
   };
 
   useEffect(() => {
-    const exists = registered.some((user) => user.username === formData.username);
-    const element = document.getElementById("userError");
+    //const exists = registered.some((user) => user.username === formData.username); //fetch from db if username is taken.
+    //const element = document.getElementById("userError");
 
-    if (exists) {
-      element.textContent = "The username is already taken, please select another one";
+    if (formData.username === "") {
+      //element.textContent = "";
       setter(prevState => ({
         ...prevState,
         allowedSubmit: {
@@ -19,7 +19,6 @@ function RegisterFormUsername({ registered, formData, setter }) {
         }
       }));
     } else {
-      if (formData.username !== "") {
         setter(prevState => ({
           ...prevState,
           allowedSubmit: {
@@ -28,9 +27,8 @@ function RegisterFormUsername({ registered, formData, setter }) {
           }
         }));
       }
-      element.textContent = "";
-    }
-  }, [registered, formData.username, setter]);
+      //element.textContent = "";
+    }, [ formData.username, setter]);
 
   return (
     <div id="userField" className="mb-3">
