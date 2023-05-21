@@ -8,6 +8,7 @@ import ChatPage from "./chatPage/ChatPage";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(null);
+  const [token,setToken]=useState(null);
 
   const [registeredUsers, setRegisteredUsers] = useState([]);
   return (
@@ -19,20 +20,21 @@ function App() {
         <Route 
           path="/" 
           element={
-            authenticated !== null ? (
-              <ChatPage setAuthenticated={setAuthenticated} authenticated={authenticated} registered={registeredUsers} setter={setRegisteredUsers} />
+            token !== null ? (
+              <ChatPage setAuthenticated={setAuthenticated} authenticated={authenticated} registered={registeredUsers} token={token} setter={setRegisteredUsers} />
             ) : (
               <Login 
                 registered={registeredUsers} 
                 authenticated={authenticated} 
                 setAuthenticated={setAuthenticated} 
+                setToken={setToken}
               />
             )
           }
         />
           <Route
             path="/login"
-            element={<Login registered={registeredUsers} authenticated={authenticated} setAuthenticated={setAuthenticated}></Login>}
+            element={<Login registered={registeredUsers} authenticated={authenticated} setAuthenticated={setAuthenticated} setToken={setToken}></Login>}
           ></Route>
           <Route
             path="/register"
