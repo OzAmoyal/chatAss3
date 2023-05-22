@@ -22,18 +22,16 @@ function LoginForm(props) {
 
       if (getToken.status === 200) {
         const token = await getToken.text();
-        console.log(token);
         const authenticated = await fetch("http://localhost:5000/api/Users/" + props.username, {
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + token, // Replace 'props.token' with your actual token value
           },
         }).then((response) => response.json());
-
         props.setAuthenticated(authenticated);
-        //const token = await getToken.json();
         props.setToken(token);
-        console.log(token);
+
+        //const token = await getToken.json();
       } else if(getToken.status === 404){
         const element = document.getElementById("loginError");
         element.textContent = "Invalid username or password.";
