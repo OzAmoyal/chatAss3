@@ -25,7 +25,7 @@ function LoginForm(props) {
         const authenticated = await fetch("http://localhost:5000/api/Users/" + props.username, {
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + token, // Replace 'props.token' with your actual token value
+            "Authorization": "Bearer " + token, 
           },
         }).then((response) => response.json());
         props.setAuthenticated(authenticated);

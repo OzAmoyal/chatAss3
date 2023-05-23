@@ -6,16 +6,14 @@ import { useState } from "react";
 
 function ChatPage(props){
  const [selectedUser, setSelectedUser] = useState(null);
-
-
-  
+const [change,setChange]=useState(false);
     return (
         <>
-        <ChatLogoutButton authSetter={props.setAuthenticated}></ChatLogoutButton>
+        <ChatLogoutButton authSetter={props.setAuthenticated} setToken={props.setToken} ></ChatLogoutButton>
       <div className="row justify-content-center">
-      <ChatLeftMenu setSelectedUser={setSelectedUser} token={props.token} authenticated={props.authenticated}></ChatLeftMenu>
+      <ChatLeftMenu setSelectedUser={setSelectedUser} setChange={setChange} change={change} token={props.token} authenticated={props.authenticated}></ChatLeftMenu>
 
-       <ChatRightMenu selectedUser={selectedUser} token={props.token}authenticated={props.authenticated}></ChatRightMenu>
+       <ChatRightMenu selectedUser={selectedUser} setChange={setChange} token={props.token}authenticated={props.authenticated}></ChatRightMenu>
       </div>
         </>
     );

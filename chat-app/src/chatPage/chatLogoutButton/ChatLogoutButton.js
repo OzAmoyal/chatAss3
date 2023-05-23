@@ -1,7 +1,8 @@
-function ChatLogoutButton({authSetter}) {
+function ChatLogoutButton({authSetter, setToken}) {
 
     const handleLogout = () => {
         authSetter(null)
+        setToken(null)
     }
 
   return (

@@ -1,7 +1,6 @@
 import "./ChatCurrentChatHeader.css"
 function ChatCurrentChatHeader({userDetails}){
-    console.log(userDetails)
-    console.log("hellooooooo")
+
     return(
         
         <div className="card-header">

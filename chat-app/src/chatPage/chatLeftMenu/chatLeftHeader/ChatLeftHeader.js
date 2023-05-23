@@ -4,8 +4,6 @@ import LeftHeaderModal from "./leftHeaderModal/LeftHeaderModal";
 
 function ChatLeftHeader({authenticated, chats, setChats, token}){
 
-    
-
     return(
         <div className="card-header">
         <span className="contact-menu-image">

@@ -21,7 +21,7 @@ function App() {
           path="/" 
           element={
             token !== null ? (
-              <ChatPage setAuthenticated={setAuthenticated} authenticated={authenticated} registered={registeredUsers} token={token} setter={setRegisteredUsers} />
+              <ChatPage setAuthenticated={setAuthenticated} authenticated={authenticated} token={token}  setToken={setToken}/>
             ) : (
               <Login 
                 registered={registeredUsers} 

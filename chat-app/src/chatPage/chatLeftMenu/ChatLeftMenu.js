@@ -11,7 +11,7 @@ async function fetchChats(token) {
         Authorization: "Bearer " + token,
       },
     });
-
+    
     if (response.ok) {
       return await response.json();
     } else {
@@ -28,19 +28,20 @@ async function fetchChats(token) {
 
 function ChatLeftMenu(props) {
   const [chats, setChats] = useState([]);
-
-  useEffect(() => {
+  const setChange=props.setChange
+  useEffect(() => { 
     const fetchData = async () => {
       try {
         const fetchedChats = await fetchChats(props.token);
         setChats(fetchedChats);
+        setChange(false)
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
-  }, [props.token]);
+  }, [props.change, props.token,setChange]);
 
   return (
     <div className="col col-4" id="contact-menu">
@@ -67,7 +68,7 @@ function ChatLeftMenu(props) {
                 const dateA = a.lastMessage.created;
                 const dateB = b.lastMessage.created;
 
-                return new Date(dateA) - new Date(dateB);
+                return new Date(dateB) - new Date(dateA);
               })
               .map((chat) => (
                 <ChatListUser

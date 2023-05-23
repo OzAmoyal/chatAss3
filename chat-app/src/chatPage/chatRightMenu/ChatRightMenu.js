@@ -9,14 +9,15 @@ async function fetchChatMessages(selectedUser, token) {
   const response = await fetch(`http://localhost:5000/api/Chats/${selectedUser}`,{
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer " + token, // Replace 'props.token' with your actual token value
+      "Authorization": "Bearer " + token, 
     },
   }).then((response) => response.json());
   return response
 }
 
-function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token }) {
+function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token,setChange }) {
   const [chatMessages, setChatMessages] = useState(null);
+  const [message, setMessage] = useState(false);
   
 
   useEffect(() => {
@@ -26,7 +27,6 @@ function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token })
         setChatMessages(chat);
       }
     }
-    console.log("selectedUser", selectedUser);
     fetchChat();
   }, [selectedUser, token]);
 
@@ -39,29 +39,22 @@ function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token })
   }
 
 
-  const handleSendMessage = (event) => {
+  const handleSendMessage = async (event) => {
     event.preventDefault();
-    const time = new Date();
-    const message = event.target[0].value;
+    const message = {"msg": event.target[0].value};
+    const sentMessage = await fetch(`http://localhost:5000/api/Chats/${selectedUser}/Messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token, 
+      },
+      body: JSON.stringify(message),
+    }).then((response) => response.json());
     
-    const newMessage = {
-      content: message,
-      sender: authenticated.username,
-      receiver: selectedUser.username,
-      timestamp: time
-    };
-    const updatedAuthenticated = { ...authenticated };
-    const otherUserIndex = updatedAuthenticated.users.findIndex(
-      (user) => user.username === selectedUser.username
-    );
-    const thisUserIndex = selectedUser.users.findIndex(
-      (user) => user.username === authenticated.username
-    );
-    updatedAuthenticated.users[otherUserIndex].messages.push(newMessage);
-    selectedUser.users[thisUserIndex].messages.push(newMessage);
-
-    setAuthenticated(updatedAuthenticated);
-
+    chatMessages.messages.push(sentMessage)
+    setChatMessages(chatMessages)
+    setMessage(true)
+    setChange(true)
     event.target[0].value = "";
   };
 
@@ -70,16 +63,20 @@ function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token })
   return (
     <div className="col col-8">
       <div className="card">
-        {chatMessages && (
+        {chatMessages && chatMessages.users && (
           <ChatCurrentChatHeader userDetails={chatMessages.users[0]} />
         )}
-        {/*<ChatBody selectedUser={selectedUser} authenticated={authenticated}></ChatBody>*/}
+        {chatMessages && chatMessages.messages && (
+          <ChatBody chatMessages={chatMessages} authenticated={authenticated} />
+        )}
       </div>
       <form onSubmit={handleSendMessage}>
-        {/* <ChatInputMessage message={message} setMessage={setMessage}></ChatInputMessage>*/}
+        <ChatInputMessage message={message} setMessage={setMessage}></ChatInputMessage>
       </form>
     </div>
   );
+  
+
 }
 
 export default ChatRightMenu;

@@ -1,35 +1,43 @@
 import { useState } from 'react';
 
 function RegisterFormPicture({ formData, setter }) {
-  const [image, setImage] = useState(null);
+  const [profilePic, setProfilePic] = useState(null);
+  const [imgURL, setProfilePicURL] = useState('');
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setImage(URL.createObjectURL(file));
-    
-    const reader = new FileReader();
-    reader.onload = () => {
-      const imageData = reader.result;
-      localStorage.setItem('picture', imageData);
-    };
-    reader.readAsDataURL(file);
-    const path = URL.createObjectURL(file); 
-    setter({
-      ...formData,
-      picture: path,
-    });
-    
-    setter((prev) => {
-      return {
-        ...prev,
-        allowedSubmit: {
-          ...prev.allowedSubmit,
-          picture: true,
-        },
+  const handleImageChange = (e) => {
+    const selectedProfilePic = e.target.files[0];
+    const allowedExtensions = ['.png', '.jpg', '.jpeg'];
+
+    // Check if the image ends with png, jpg, or jpeg
+    if (selectedProfilePic && allowedExtensions.some(ext => selectedProfilePic.name.toLowerCase().endsWith(ext))) {
+      setProfilePic(selectedProfilePic);
+
+      const reader = new FileReader();
+      reader.readAsDataURL(selectedProfilePic);
+      reader.onload = () => {
+        const img = new Image();
+        img.src = reader.result;
+        img.onload = () => {
+          setProfilePicURL(reader.result);
+        };
+
+        setter({
+          ...formData,
+          picture: reader.result,
+        });
+
+        setter((prev) => {
+          return {
+            ...prev,
+            allowedSubmit: {
+              ...prev.allowedSubmit,
+              picture: true,
+            },
+          };
+        });
       };
-    });
+    }
   };
-  
 
   return (
     <div className="mb-3">
@@ -42,9 +50,9 @@ function RegisterFormPicture({ formData, setter }) {
         type="file"
         onChange={handleImageChange}
       />
-      {image && (
+      {imgURL && (
         <div className="mt-2">
-          <img src={image} alt="Preview" width="200" />
+          <img src={imgURL} alt="Preview" width="200" />
         </div>
       )}
     </div>
