@@ -18,7 +18,7 @@ function RegisterForm(props) {
         
             //props.setRegisteredUsers(prevState => [...prevState, {username: props.formData["username"], password: props.formData["password"], picture: props.formData["picture"], display: props.formData["display"], users: []}]);
             //post request to register user to db
-            const data={username:props.formData["username"],password:props.formData["password"],profilePic:props.formData["picture"],displayName:props.formData["display"]}
+            const data={username:props.formData["username"],password:props.formData["password"],profilePic:(props.formData["picture"]),displayName:props.formData["display"]}
             const statusRegister= await fetch("http://localhost:5000/api/Users", {
               method: "POST",
               headers: {

@@ -2,17 +2,15 @@
 import LeftHeaderModal from "./leftHeaderModal/LeftHeaderModal";
 
 
-function ChatLeftHeader({authenticated, setAuthenticated , registered}){
-
-    
+function ChatLeftHeader({authenticated, chats, setChats, token}){
 
     return(
         <div className="card-header">
         <span className="contact-menu-image">
-          <img className="profileimg" src={authenticated.picture} alt={authenticated.display} />
+          <img className="profileimg" src={authenticated.profilePic} alt={authenticated.displayName} />
         </span>
-        <span id="top-users-head"> {authenticated.display} </span>
-        <LeftHeaderModal setAuthenticated={setAuthenticated} authenticated={authenticated} registered={registered}></LeftHeaderModal>
+        <span id="top-users-head"> {authenticated.displayName} </span>
+        <LeftHeaderModal authenticated={authenticated} chats={chats} setChats={setChats} token={token} ></LeftHeaderModal>
       </div>
     )
 }
