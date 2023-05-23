@@ -1,0 +1,39 @@
+import UserModel from '../models/userModel.js';
+import UserPassName from '../models/userPassNameModel.js';
+import UserPass from '../models/userpassModel.js';
+
+const createUser = async (username, password, displayName, profilePic) => {
+  try {
+    // Check if the username is already taken
+    const existingUser = await UserPassName.findOne({ username });
+    if (existingUser) {
+      return { error: 'Username is already taken', status: 409 };
+    }
+
+    const userpassname = new UserPassName({
+      username,
+      password,
+      displayName,
+      profilePic
+    });
+    await userpassname.save();
+
+    const userpass = new UserPass({
+      username,
+      password
+    });
+    await userpass.save();
+
+    const user = new UserModel({
+      username,
+      displayName,
+      profilePic
+    });
+    await user.save();
+    return { user, status: 200 };
+  } catch (error) {
+    return { error: 'Internal Server Error', status: 500 };
+  }
+};
+
+export default { createUser };

@@ -12,7 +12,7 @@ function LoginForm(props) {
     };
 
     try {
-      const getToken = await fetch("http://localhost:5000/api/Tokens", {
+      const getToken = await fetch("http://localhost:50000/api/Tokens", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -22,7 +22,7 @@ function LoginForm(props) {
 
       if (getToken.status === 200) {
         const token = await getToken.text();
-        const authenticated = await fetch("http://localhost:5000/api/Users/" + props.username, {
+        const authenticated = await fetch("http://localhost:50000/api/Users/" + props.username, {
           headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + token, 

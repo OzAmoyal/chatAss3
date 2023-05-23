@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 async function fetchChats(token) {
   try {
-    const response = await fetch("http://localhost:5000/api/Chats", {
+    const response = await fetch("http://localhost:50000/api/Chats", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

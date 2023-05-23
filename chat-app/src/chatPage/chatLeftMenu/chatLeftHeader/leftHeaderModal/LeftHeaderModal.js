@@ -7,7 +7,7 @@ function LeftHeaderModal({authenticated, chats,setChats, token}){
   const createChat = async (username) => {
     const data = { "username": username };
     try {
-      const createdChat = await fetch("http://localhost:5000/api/Chats", {
+      const createdChat = await fetch("http://localhost:50000/api/Chats", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
