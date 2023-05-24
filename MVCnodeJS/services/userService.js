@@ -42,5 +42,9 @@ const  isLoginValid = async (username,password) => {
       return true;
     }
     return false;
-}
-export default { createUser, isLoginValid };
+};
+const getUserDetails = async(username)=>{
+  const user= await UserModel.findOne({username});
+  return user;
+} 
+export default { createUser, isLoginValid, getUserDetails };
