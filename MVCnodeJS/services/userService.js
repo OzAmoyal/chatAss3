@@ -1,3 +1,4 @@
+import e from 'express';
 import UserModel from '../models/userModel.js';
 import UserPassName from '../models/userPassNameModel.js';
 import UserPass from '../models/userpassModel.js';
@@ -35,5 +36,11 @@ const createUser = async (username, password, displayName, profilePic) => {
     return { error: 'Internal Server Error', status: 500 };
   }
 };
-
-export default { createUser };
+const  isLoginValid = async (username,password) => {
+  const existingUser = await UserPass.findOne({ username,password });
+    if (existingUser) {
+      return true;
+    }
+    return false;
+}
+export default { createUser, isLoginValid };
