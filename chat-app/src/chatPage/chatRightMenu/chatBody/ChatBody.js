@@ -4,12 +4,13 @@ import ChatBodyMessage from './chatBodyMessage.js/chatBodyMessage';
 function ChatBody({ chatMessages, authenticated }) {
   const messages = chatMessages.messages || []; // Extract the messages array
 
-  messages.sort(function(a, b) {
+  /*messages.sort(function(a, b) {
     const dateA = new Date(a.created);
     const dateB = new Date(b.created);
-    return dateB - dateA;
+    return dateA - dateB;
   });
-
+*/
+messages.sort((a, b) => new Date(b.created) - new Date(a.created));
   return (
     <div className="chat" id="message-window">
       {messages.map((message) => (

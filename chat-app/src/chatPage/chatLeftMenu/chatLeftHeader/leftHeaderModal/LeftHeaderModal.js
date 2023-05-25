@@ -1,5 +1,5 @@
 import { useRef,useState } from "react";
-import AddUserError from "./addUserError/AddUserError"
+import AddUserError from "./addUserError/AddUserError";
 function LeftHeaderModal({authenticated, chats,setChats, token}){
   const errorMessage = useRef("");
   const [error,setError]=useState("")
@@ -15,6 +15,10 @@ function LeftHeaderModal({authenticated, chats,setChats, token}){
         },
         body: JSON.stringify(data)
       });
+      if(createdChat.status===400){
+      setError("username not exists");
+      return;
+      }
       const createdChatJson = await createdChat.json();
       chats.push(createdChatJson);
       setChats([...chats]);
@@ -34,10 +38,7 @@ function LeftHeaderModal({authenticated, chats,setChats, token}){
       setError("please enter username");
       return
     }
-    /*if (!chats.some(chat=>chat.user.username===username)) {
-      setError("username not exists")
-      return
-    }*/
+
     if(chats.some(chat=>chat.user.username===username)){
       setError("you already have a chat with this user")
       return
@@ -49,11 +50,6 @@ function LeftHeaderModal({authenticated, chats,setChats, token}){
     setError("")
 
     createChat(username);
-    
-    //const userChosen= registered.find(user=>user.username===username)
-    //authenticated.users.push({username:userChosen.username, messages:[]})
-    //userChosen.users.push({username:authenticated.username, messages:[]})
-    //setAuthenticated({...authenticated})
     event.target.name.value=""
   }
     return(
@@ -81,7 +77,7 @@ function LeftHeaderModal({authenticated, chats,setChats, token}){
             <h5 className="modal-title" id="exampleModalCenterTitle">
               Add new contact
             </h5>
-            <button
+            <button onClick={()=>{setError("")}}
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
@@ -98,7 +94,9 @@ function LeftHeaderModal({authenticated, chats,setChats, token}){
               name="name"
               placeholder="Contact's Username"
             />
-            <AddUserError errorMessage={errorMessage} error={error}></AddUserError>
+            {error !== "" && (
+              <AddUserError errorMessage={errorMessage} error={error}></AddUserError>
+            )}
 
           </div>
           <div className="modal-footer">

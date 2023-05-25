@@ -23,4 +23,29 @@ async function sendMessage(chatId, username, message) {
     // Return the message
     return savedMessage;
 }
-export default {sendMessage};
+
+async function getMessages(chatId) {
+    const messages=[];
+    const chat = await chatModel.findById(chatId);   
+    if(chat.messages.length===0){
+        return messages;
+    } 
+    const getMessages = async function(chat){
+        const messagePromises = chat.messages.map(async (message) => {
+        try {
+          const messageDetails = await messageModel.findById(message._id);
+          return messageDetails;
+        } catch (error) {
+          console.error("Error fetching message details:", error);
+          throw error; // Rethrow the error to be caught in the outer try-catch block
+        }
+      });
+      const returnValue=await Promise.all(messagePromises);
+      return returnValue;
+    }
+    messages = await getMessages(chat);
+    return messages;
+}
+
+
+export default {sendMessage, getMessages};

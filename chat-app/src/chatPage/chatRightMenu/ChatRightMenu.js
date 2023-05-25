@@ -64,7 +64,7 @@ function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token,se
     <div className="col col-8">
       <div className="card">
         {chatMessages && chatMessages.users && (
-          <ChatCurrentChatHeader userDetails={chatMessages.users[0]} />
+          <ChatCurrentChatHeader userDetails={chatMessages.users[0].username===authenticated.username?chatMessages.users[1]:chatMessages.users[0]} />
         )}
         {chatMessages && chatMessages.messages && (
           <ChatBody chatMessages={chatMessages} authenticated={authenticated} />

@@ -1,14 +1,16 @@
 import mongoose from 'mongoose';
 import UserModel from './userModel.js';
+
 const messageSchema = new mongoose.Schema({
   
     created: {
       type: Date,
-      required: true
+      required: true,
+      default: Date.now
     },
     sender: {
-      type: UserModel,
-      required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'UserModel',
     },
     content: {
       type: String,
@@ -18,4 +20,4 @@ const messageSchema = new mongoose.Schema({
   
  
   const MessageModel= mongoose.model('MessageModel', messageSchema);
-  module.exports = MessageModel;
+  export default MessageModel;
