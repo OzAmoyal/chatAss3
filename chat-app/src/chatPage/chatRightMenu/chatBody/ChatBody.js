@@ -1,26 +1,24 @@
-import './ChatBody.css'
-import ChatBodyMessage from "./chatBodyMessage.js/chatBodyMessage";
+import './ChatBody.css';
+import ChatBodyMessage from './chatBodyMessage.js/chatBodyMessage';
 
+function ChatBody({ chatMessages, authenticated }) {
+  const messages = chatMessages.messages || []; // Extract the messages array
 
-function ChatBody({ selectedUser, authenticated }) {
-  const talkingTo = authenticated.users.find(
-    (user) => user.username === selectedUser.username
-  );
-  const arrayOfMessages = talkingTo.messages;
-
-   arrayOfMessages.sort(function(a, b) {
-    return b.timestamp - a.timestamp;
+  /*messages.sort(function(a, b) {
+    const dateA = new Date(a.created);
+    const dateB = new Date(b.created);
+    return dateA - dateB;
   });
-  
-
+*/
+messages.sort((a, b) => new Date(b.created) - new Date(a.created));
   return (
     <div className="chat" id="message-window">
-      {arrayOfMessages.map((message) => (
+      {messages.map((message) => (
         <ChatBodyMessage
-          key={message.timestamp}
+          key={message.id}
           messageContent={message.content}
-          sender={authenticated.username === message.sender ? "mine" : "yours"}
-          timestamp={message.timestamp}
+          sender={authenticated.username === message.sender.username ? 'mine' : 'yours'}
+          created={message.created}
         />
       ))}
     </div>

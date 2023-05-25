@@ -24,10 +24,8 @@ function RegisterFormPassword({ formData, setter }) {
 
     // Check if Confirm Password field is valid
     const confirm = formData.confirm;
-    console.log(confirm)
     const confirmErrorElement = document.getElementById("confirmPasswordError");
     if (confirm !== "" && confirm !== password) {
-      console.log("not similar")
       confirmErrorElement.textContent = "Passwords are not identical";
       setter(prevState => ({
         ...prevState,
@@ -37,7 +35,6 @@ function RegisterFormPassword({ formData, setter }) {
         }
       }));
     } else {
-      console.log("similar")
       confirmErrorElement.textContent = "";
       setter(prevState => ({
         ...prevState,
