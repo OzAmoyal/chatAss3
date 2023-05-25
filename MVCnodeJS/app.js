@@ -5,6 +5,7 @@ import cors from 'cors';
 import customEnv from 'custom-env';
 import userRouter from './routes/userRoute.js';
 import tokenRouter from './routes/tokenRoute.js';
+import chatRouter from './routes/chatRouter.js';
 
 
 const app = express();
@@ -23,42 +24,13 @@ mongoose.connect(process.env.DB_HOST, {
 const db = mongoose.connection;
 app.use(express.static('public'))
 
-app.use('/api/Users',userRouter)
+app.use('/api/Users',userRouter);
 app.use('/api/tokens/',tokenRouter);
+app.use('/api/Chats/', chatRouter)
 
 // Start the server
 app.listen(50000, () => {
   console.log('Server is running on port 50000');
 });
 
-/*
-app.get('/api/Chats', async (req, res) => {
-  try {
-    // Fetch all the chats from the database
-    const chats = await Chat.find();
-
-    // Return the chats as a response
-    res.json(chats);
-  } catch (error) {
-    // Handle any errors that occur
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-*/
 app.use(express.json());
-/*
-// Handle POST requests to /api/Chats
-app.post('/api/Chats', async (req, res) => {
-  try {
-    // Create a new chat based on the request body
-    const chat = await Chat.create(req.body);
-
-    // Return the created chat as a response
-    res.status(201).json(chat);
-  } catch (error) {
-    // Handle any errors that occur
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-*/

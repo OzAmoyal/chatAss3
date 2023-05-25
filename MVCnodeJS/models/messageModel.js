@@ -1,17 +1,13 @@
 import mongoose from 'mongoose';
-import userSchema from './users'
-const Schema = mongoose.Schema;
+import UserModel from './userModel.js';
 const messageSchema = new mongoose.Schema({
-    id: {
-      type: Number,
-      required: true
-    },
+  
     created: {
       type: Date,
       required: true
     },
     sender: {
-      type: userSchema,
+      type: UserModel,
       required: true
     },
     content: {
@@ -20,5 +16,6 @@ const messageSchema = new mongoose.Schema({
     }
   });
   
-  const Message = mongoose.model('Message', messageSchema);
-  module.exports = Message;
+ 
+  const MessageModel= mongoose.model('MessageModel', messageSchema);
+  module.exports = MessageModel;

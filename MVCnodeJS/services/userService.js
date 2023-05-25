@@ -37,13 +37,14 @@ const createUser = async (username, password, displayName, profilePic) => {
   }
 };
 const  isLoginValid = async (username,password) => {
-  const existingUser = await UserPass.findOne({ username,password });
+  const existingUser = await UserPass.findOne({ username, password });
     if (existingUser) {
       return true;
     }
     return false;
 };
 const getUserDetails = async(username)=>{
+
   const user= await UserModel.findOne({username});
   return user;
 } 

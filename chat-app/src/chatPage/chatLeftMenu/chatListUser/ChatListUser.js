@@ -18,7 +18,7 @@ function ChatListUser({user,chatid, lastMessage, setSelectedUser }) {
     lastMessageContent = lastMessage.content;
   }
   const handleClick = () => {
-    console.log(chatid)
+
     setSelectedUser(chatid);
     }
     
