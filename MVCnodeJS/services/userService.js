@@ -31,7 +31,7 @@ const createUser = async (username, password, displayName, profilePic) => {
       profilePic
     });
     await user.save();
-    return { user, status: 200 };
+    return {status: 200 };
   } catch (error) {
     return { error: 'Internal Server Error', status: 500 };
   }
@@ -46,6 +46,9 @@ const  isLoginValid = async (username,password) => {
 const getUserDetails = async(username)=>{
 
   const user= await UserModel.findOne({username});
-  return user;
-} 
-export default { createUser, isLoginValid, getUserDetails };
+  return {username:user.username,displayName:user.displayName,profilePic:user.profilePic};
+}
+const getFullUserDetails = async(username)=>{
+return await UserModel.findOne({username});
+}
+export default { createUser, isLoginValid, getUserDetails,getFullUserDetails };

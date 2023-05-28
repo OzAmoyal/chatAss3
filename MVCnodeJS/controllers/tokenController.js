@@ -2,6 +2,11 @@ import tokenService from '../services/tokenService.js';
 
 
 export const getToken = async (req, res) => {
-  res.json(await tokenService.getToken(req.body.username,req.body.password));
+  const getTokenStatus= await tokenService.getToken(req.body.username,req.body.password);
+  if(getTokenStatus.status==404){
+  res.status(404).send('Incorrect username and/or password');
+  }else{
+  res.status(200).send(getTokenStatus.token);
+  }
    
 };

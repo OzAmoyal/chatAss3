@@ -5,7 +5,7 @@ import userService from './userService.js';
 
 async function sendMessage(chatId, username, message) {
     
-    const getUser = await userService.getUserDetails(username);
+    const getUser = await userService.getFullUserDetails(username);
     // Fetch all the chats from the database
     const chat = await chatModel.findById(chatId);
     // Create a new message
@@ -21,7 +21,7 @@ async function sendMessage(chatId, username, message) {
     // Save the chat
     await chat.save();
     // Return the message
-    return savedMessage;
+    return {id:savedMessage._id.toString(),sender:{username:getUser.username,displayName:getUser.displayName,profilePic:getUser.profilePic},content:savedMessage.content,created:savedMessage.created};
 }
 
 async function getMessages(chatId) {
@@ -34,7 +34,7 @@ async function getMessages(chatId) {
         const messagePromises = chat.messages.map(async (message) => {
         try {
           const messageDetails = await messageModel.findById(message._id);
-          return messageDetails;
+          return {id:messageDetails._id.toString(),sender:{username:messageDetails.sender.username,displayName:messageDetails.sender.displayName,profilePic:messageDetails.sender.profilePic},content:messageDetails.content,created:messageDetails.created};
         } catch (error) {
           console.error("Error fetching message details:", error);
           throw error; // Rethrow the error to be caught in the outer try-catch block
