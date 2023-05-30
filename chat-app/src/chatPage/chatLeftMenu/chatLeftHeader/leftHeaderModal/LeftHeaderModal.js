@@ -1,6 +1,6 @@
 import { useRef,useState } from "react";
 import AddUserError from "./addUserError/AddUserError";
-function LeftHeaderModal({authenticated, chats,setChats, token}){
+function LeftHeaderModal({authenticated, chats,setChats, token,fetchChats}){
   const errorMessage = useRef("");
   const [error,setError]=useState("")
   
@@ -20,8 +20,8 @@ function LeftHeaderModal({authenticated, chats,setChats, token}){
       return;
       }
       const createdChatJson = await createdChat.json();
-      chats.push(createdChatJson);
-      setChats([...chats]);
+      const getChats = await fetchChats(token);
+      setChats(getChats);
     } catch (error) {
       // Handle the error silently without logging it
       setError("username not exists");

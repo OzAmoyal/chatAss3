@@ -47,6 +47,7 @@ function ChatLeftMenu(props) {
     <div className="col col-4" id="contact-menu">
       <div className="card">
         <ChatLeftHeader
+        fetchChats={fetchChats}
           authenticated={props.authenticated}
           chats={chats}
           setChats={setChats}
@@ -56,7 +57,9 @@ function ChatLeftMenu(props) {
           <ul className="list-group">
             {chats
               .sort((a, b) => {
-                // Handle the case where "lastMessage" is null
+                if (a.lastMessage === null && b.lastMessage === null) {
+                  return 0; // Both elements are equal
+                }
                 if (a.lastMessage === null){
                   return -1; // Place a before b
                 }

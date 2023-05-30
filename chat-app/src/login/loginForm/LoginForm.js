@@ -1,3 +1,4 @@
+import { get } from "mongoose";
 import LoginPassword from "./loginPassword/LoginPassword";
 import LoginSubmitButton from "./loginSubmitButton/LoginSubmitButton";
 import LoginUsername from "./loginUsername/LoginUsername";
@@ -19,9 +20,10 @@ function LoginForm(props) {
         },
         body: JSON.stringify(data)
       });
-
+      
+      const token = await getToken.text();
       if (getToken.status === 200) {
-        const token = await getToken.text();
+       
         const authenticated = await fetch("http://localhost:50000/api/Users/" + props.username, {
           headers: {
             "Content-Type": "application/json",
