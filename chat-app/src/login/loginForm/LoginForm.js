@@ -22,7 +22,6 @@ function LoginForm(props) {
       });
       
       const token = await getToken.text();
-      console.log(token)
       if (getToken.status === 200) {
        
         const authenticated = await fetch("http://localhost:50000/api/Users/" + props.username, {

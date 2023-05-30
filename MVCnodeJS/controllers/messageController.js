@@ -7,30 +7,44 @@ export async function sendMessage(req,res){
     try{
         username = await tokenService.isLoggedIn(req.headers.authorization);
     }catch(error){
-        res.status(401).json({ error: 'Unauthorized' });
+        res.status(401).send();
         return;
     }
     try{
         const message = await messageService.sendMessage(req.params.id,username,req.body.msg);
         res.status(200).send(message);
+        return;
     }catch(error){
-        res.status(500).json({ error: 'internal server error' });
+        if(error.message==="Unauthorized"){
+            res.status(401).send();
+            return;
+        }else{
+        res.status(500).send();
+        return;
     }
+}
 }
 export async function getMessages(req,res){
     var username="";
     try{
         username = await tokenService.isLoggedIn(req.headers.authorization);
     }catch(error){
-        res.status(401).json({ error: 'Unauthorized' });
+        res.status(401).send();
         return;
     }
     try{
-        const messages = await messageService.getMessages(req.params.id);
+        const messages = await messageService.getMessages(req.params.id,username);
         res.status(200).send(messages);
+        return;
     }catch(error){
-        res.status(500).json({ error: 'internal server error' });
+        if(error.message==="Unauthorized"){
+            res.status(401).send();
+            return;
+        }else{
+        res.status(401).send();
+        return;
     }
+}
 
     
 

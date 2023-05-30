@@ -2,6 +2,7 @@ import chatModel from '../models/chatModel.js';
 import userModel from '../models/userModel.js';
 import messageModel from '../models/messageModel.js';
 import userService from '../services/userService.js';
+import thr from 'throw';
 
 
 async function getChats(username){
@@ -71,16 +72,13 @@ async function createChat(req, username){
     try {
 
         const otherUser= await userService.getFullUserDetails(req.body.username);
-        console.log(otherUser.username);
         if(!otherUser){
         throw new error("no such user");
         }
 
         // Create a new chat
         const myUser= await userService.getFullUserDetails(username);
-        console.log(myUser.username)
         const chat = new chatModel({users: [myUser, otherUser], messages: []});
-        console.log(chat)
 
         // Save the chat to the database
         const savedChat = await chat.save();
@@ -98,7 +96,7 @@ async function createChat(req, username){
         }
 }
 
-    async function getChatById(chatID){
+    async function getChatById(chatID,username){
       
         const chatObject = {
           id: chatID,
@@ -109,6 +107,7 @@ async function createChat(req, username){
         const userPromises = chat.users.map(async (user) => {
           try {
             const userDetails = await userModel.findById(user._id);
+            
             return {username:userDetails.username,displayName:userDetails.displayName,profilePic:userDetails.profilePic};
           } catch (error) {
             console.error("Error fetching user details:", error);
@@ -117,6 +116,9 @@ async function createChat(req, username){
         });
         
         chatObject.users = await Promise.all(userPromises);
+        if(!chatObject.users.find(u => u.username === username)){
+        throw new Error("Unauthorized");
+        }
         const getMessages = async function(chat){
           const messagePromises = chat.messages.map(async (message) => {
           try {
