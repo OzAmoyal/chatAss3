@@ -30,4 +30,5 @@ async function isLoggedIn(tokenHeader) {
   }
 }
 
+//change
 export default { getToken, isLoggedIn };
