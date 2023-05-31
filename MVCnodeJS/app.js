@@ -36,13 +36,19 @@ io.on('connection', (socket) => {
     const chat = await chatService.getChatById(data.chatID,username);
     const otherUser= chat.users.find(u => u.username !== username);
     if(userSockets[otherUser.username]){
-      userSockets[otherUser.username].emit('update', data.chatID);
+      userSockets[otherUser.username].emit('update', {chatID:data.chatID,sender:username,content:data.content});
     }
-    //const username = await userService.isLoggedIn(token);
-    // Do something with the identified user
-  }
+  });
+  socket.on('logout', async (token) => {
+    const username= await tokenService.isLoggedIn(token);
+    delete userSockets[username];
+    if(!userSockets[username]){
+      console.log("deleted" +username)
+    }
+  });
 
-)});
+
+});
 
 app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));

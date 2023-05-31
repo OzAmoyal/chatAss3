@@ -4,7 +4,6 @@ import ChatInputMessage from "./chatInputMessage/ChatInputMessage";
 import ChatBody from "./chatBody/ChatBody";
 import welcome_back from "./welcome_back_gif.gif";
 import "./ChatRightMenu.css"
-import { set } from 'mongoose';
 
 async function fetchChatMessages(selectedUser, token) {
   const response = await fetch(`http://localhost:50000/api/Chats/${selectedUser}`,{
@@ -64,7 +63,7 @@ function ChatRightMenu({ selectedUser, authenticated, token,setChange,socket,upd
       },
       body: JSON.stringify(message),
     }).then((response) => response.json());
-    socket.emit("message", {sender:sentMessage.sender.username,chatID:selectedUser})
+    socket.emit("message", {sender:sentMessage.sender.username,chatID:selectedUser,content:sentMessage.content})
     chatMessages.messages.push(sentMessage)
     setChatMessages(chatMessages)
     setMessage(true)

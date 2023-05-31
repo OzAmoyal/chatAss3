@@ -1,6 +1,7 @@
-function ChatLogoutButton({authSetter, setToken}) {
+function ChatLogoutButton({authSetter, setToken,socket,token}) {
 
     const handleLogout = () => {
+        socket.emit('logout', "bearer "+token);
         authSetter(null)
         setToken(null)
     }

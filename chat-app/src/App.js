@@ -1,13 +1,12 @@
 import "./App.css";
-import { useState ,useEffect} from "react";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./login/Login";
 import Register from "./register/Register";
 import ChatPage from "./chatPage/ChatPage";
 import io from "socket.io-client";
-//import { set } from "mongoose";
 
-function App(props) {
+function App() {
   const [authenticated, setAuthenticated] = useState(null);
   const [token,setToken]=useState(null);
   //const [socket,setSocket]=useState(null);
@@ -16,10 +15,6 @@ function App(props) {
   const socket = io('http://localhost:50000', {
   withCredentials: true,
 });
-
-  
-
-
 
   return (
     <BrowserRouter>
