@@ -119,3 +119,16 @@ font-size: large;
     display: flex;
     flex-direction: column-reverse;
   }
+.popover-container{
+  display: flex;
+
+}
+.popover{
+  display: flex;
+  
+
+}
+.popover-content{
+  display: flex;
+
+}
