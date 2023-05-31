@@ -4,6 +4,7 @@ import ChatInputMessage from "./chatInputMessage/ChatInputMessage";
 import ChatBody from "./chatBody/ChatBody";
 import welcome_back from "./welcome_back_gif.gif";
 import "./ChatRightMenu.css"
+import { set } from 'mongoose';
 
 async function fetchChatMessages(selectedUser, token) {
   const response = await fetch(`http://localhost:50000/api/Chats/${selectedUser}`,{
@@ -15,7 +16,7 @@ async function fetchChatMessages(selectedUser, token) {
   return response
 }
 
-function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token,setChange }) {
+function ChatRightMenu({ selectedUser, authenticated, token,setChange,socket,update,setUpdate }) {
   const [chatMessages, setChatMessages] = useState(null);
   const [message, setMessage] = useState(false);
   
@@ -29,6 +30,19 @@ function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token,se
     }
     fetchChat();
   }, [selectedUser, token]);
+
+  useEffect(() => {
+    async function fetchChat() {
+      if(update){
+      if (selectedUser) {
+        const chat = await fetchChatMessages(selectedUser,token);
+        setChatMessages(chat);
+        setUpdate(false)
+      }
+      }
+    }
+    fetchChat();
+  }, [update,selectedUser, token,setUpdate]);
 
   if (selectedUser === null) {
     return (
@@ -50,7 +64,7 @@ function ChatRightMenu({ selectedUser, setAuthenticated, authenticated, token,se
       },
       body: JSON.stringify(message),
     }).then((response) => response.json());
-    
+    socket.emit("message", {sender:sentMessage.sender.username,chatID:selectedUser})
     chatMessages.messages.push(sentMessage)
     setChatMessages(chatMessages)
     setMessage(true)

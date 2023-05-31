@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import './fonts.css'
 import './index.css';
+import io from "socket.io-client";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
