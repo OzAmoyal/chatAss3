@@ -29,6 +29,7 @@ props.socket.on('update', (data) => {
     }
     setNotifications(updatedNotifications);
   }
+  
 });
 useEffect(() => {
   if (selectedUser && notifications && notifications[selectedUser]) {
