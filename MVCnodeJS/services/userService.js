@@ -5,7 +5,7 @@ import UserPass from '../models/userpassModel.js';
 
 const createUser = async (username, password, displayName, profilePic) => {
   try {
-    // Check if the username is already taken
+    // check if the username is already taken
     const existingUser = await UserPassName.findOne({ username });
     if (existingUser) {
       return { error: 'Username is already taken', status: 409 };

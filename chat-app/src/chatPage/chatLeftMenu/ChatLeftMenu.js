@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 async function fetchChats(token) {
   try {
-    const response = await fetch("http://localhost:50000/api/Chats", {
+    const response = await fetch("/api/Chats", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -15,13 +15,9 @@ async function fetchChats(token) {
     if (response.ok) {
       return await response.json();
     } else {
-      console.error("Error fetching chats: " + response.status);
-      console.error("hi");
       throw new Error("Error fetching chats");
     }
   } catch (error) {
-    console.error(error);
-    console.error("hi2");
     throw new Error("Error fetching chats: " + error.message);
   }
 }
@@ -36,7 +32,6 @@ function ChatLeftMenu(props) {
         setChats(fetchedChats);
         setChange(false)
       } catch (error) {
-        console.error(error);
       }
     };
 

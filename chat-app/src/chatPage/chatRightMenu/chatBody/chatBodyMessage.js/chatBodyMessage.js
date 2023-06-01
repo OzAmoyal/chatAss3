@@ -1,4 +1,4 @@
-function ChatBodyMessage({messageContent, sender,created}) {
+function ChatBodyMessage({messageContent, sender}) {
  return (
     <>  
     <div className={sender +' messages'}>

@@ -9,12 +9,9 @@ import io from "socket.io-client";
 function App() {
   const [authenticated, setAuthenticated] = useState(null);
   const [token,setToken]=useState(null);
-  //const [socket,setSocket]=useState(null);
   const [registeredUsers, setRegisteredUsers] = useState([]);
 
-  const socket = io('http://localhost:50000', {
-  withCredentials: true,
-});
+  const socket = io();
 
   return (
     <BrowserRouter>
