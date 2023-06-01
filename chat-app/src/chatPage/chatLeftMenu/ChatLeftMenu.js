@@ -77,6 +77,8 @@ function ChatLeftMenu(props) {
                 <ChatListUser
                   user={chat.user}
                   key={chat.id}
+                  notifications={props.notifications}
+                  setNotifications={props.setNotifications}
                   chatid={chat.id}
                   lastMessage={chat.lastMessage}
                   setSelectedUser={props.setSelectedUser}

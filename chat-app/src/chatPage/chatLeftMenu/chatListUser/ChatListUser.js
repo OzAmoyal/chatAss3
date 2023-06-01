@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import './ChatListUser.css'
 import DateTimeComponent from "./DateTime";
-function ChatListUser({user,chatid, lastMessage, setSelectedUser }) {
+import Notification from "./Notification";
+function ChatListUser({user,chatid, lastMessage, setSelectedUser,notifications,setNotifications }) {
   const [hovered, setHovered] = useState(false);
+
   const handleMouseEnter = () => {
     setHovered(true);
   };
@@ -21,7 +23,12 @@ function ChatListUser({user,chatid, lastMessage, setSelectedUser }) {
   const handleClick = () => {
 
     setSelectedUser(chatid);
+    if (notifications && notifications[chatid]) {
+      const updatedNotifications = { ...notifications };
+      updatedNotifications[chatid] = 0;
+      setNotifications(updatedNotifications);
     }
+  };
     
   return (
     <li className={`list-group-item ${hovered ? 'chosen' : ''}`}  onClick={handleClick}  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -30,6 +37,7 @@ function ChatListUser({user,chatid, lastMessage, setSelectedUser }) {
           <img className="profileimg" src={user.profilePic} alt={user.displayName} />
         </span>
         <span className="contact-menu-name"> {user.displayName} </span>
+        <Notification notification={notifications[chatid]} />
        <DateTimeComponent serverDateTime={latestTimestamp}></DateTimeComponent>
         <div className="contact-menu-last-message">{lastMessageContent}</div>
       </div>
