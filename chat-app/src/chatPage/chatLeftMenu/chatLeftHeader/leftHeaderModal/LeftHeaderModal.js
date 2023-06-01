@@ -7,7 +7,7 @@ function LeftHeaderModal({authenticated, chats,setChats, token,fetchChats}){
   const createChat = async (username) => {
     const data = { "username": username };
     try {
-      const createdChat = await fetch("http://localhost:50000/api/Chats", {
+      const createdChat = await fetch("/api/Chats", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,7 +23,6 @@ function LeftHeaderModal({authenticated, chats,setChats, token,fetchChats}){
       const getChats = await fetchChats(token);
       setChats(getChats);
     } catch (error) {
-      // Handle the error silently without logging it
       setError("username not exists");
       return;
     }

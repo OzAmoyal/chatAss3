@@ -14,7 +14,6 @@ props.socket.on('identify', (data) => {
 props.socket.emit('token', "bearer "+props.token);
 });
 props.socket.on('update', (data) => {
-  //data=JSON.parse(data)
   setChange(true)
  
   if(selectedUser===data.chatID){
@@ -29,6 +28,7 @@ props.socket.on('update', (data) => {
     }
     setNotifications(updatedNotifications);
   }
+  
 });
 useEffect(() => {
   if (selectedUser && notifications && notifications[selectedUser]) {

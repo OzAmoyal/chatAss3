@@ -6,7 +6,7 @@ import welcome_back from "./welcome_back_gif.gif";
 import "./ChatRightMenu.css"
 
 async function fetchChatMessages(selectedUser, token) {
-  const response = await fetch(`http://localhost:50000/api/Chats/${selectedUser}`,{
+  const response = await fetch(`/api/Chats/${selectedUser}`,{
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer " + token, 
@@ -55,7 +55,7 @@ function ChatRightMenu({ selectedUser, authenticated, token,setChange,socket,upd
   const handleSendMessage = async (event) => {
     event.preventDefault();
     const message = {"msg": event.target[0].value};
-    const sentMessage = await fetch(`http://localhost:50000/api/Chats/${selectedUser}/Messages`, {
+    const sentMessage = await fetch(`/api/Chats/${selectedUser}/Messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

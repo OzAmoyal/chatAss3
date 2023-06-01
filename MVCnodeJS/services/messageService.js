@@ -7,25 +7,25 @@ import UserModel from '../models/userModel.js';
 async function sendMessage(chatId, username, message) {
     
     const getUser = await userService.getFullUserDetails(username);
-    // Fetch all the chats from the database
+    // fetch all the chats from the database
     const chat = await chatModel.findById(chatId);
-    // Check if the user is a part of the chat
+    // check if the user is a part of the chat
     if (!chat.users.includes(getUser._id)) {
         throw new Error("Unauthorized");
     }
-    // Create a new message
+    // create a new message
     const newMessage = new messageModel({
         chat: chatId,
         sender: getUser,
         content: message
     });
-    // Save the message to the database
+    // save the message to the database
     const savedMessage = await newMessage.save();
-    // Add the message to the chat
+    // add the message to the chat
     chat.messages.push(savedMessage);
-    // Save the chat
+    // save the chat
     await chat.save();
-    // Return the message
+    // return the message
     return {id:savedMessage._id.toString(),sender:{username:getUser.username,displayName:getUser.displayName,profilePic:getUser.profilePic},content:savedMessage.content,created:savedMessage.created};
 }
 
@@ -38,8 +38,7 @@ async function getMessages(chatId,username) {
         
         return {username:userDetails.username,displayName:userDetails.displayName,profilePic:userDetails.profilePic};
       } catch (error) {
-        console.error("Error fetching user details:", error);
-        throw error; // Rethrow the error to be caught in the outer try-catch block
+        throw error;
       }
     });
     var users=await Promise.all(userPromises);
@@ -56,7 +55,7 @@ async function getMessages(chatId,username) {
           const senderDetails = await UserModel.findById(messageDetails.sender);
           return {id:messageDetails._id.toString(),sender:{username:senderDetails.username},content:messageDetails.content,created:messageDetails.created};
         } catch (error) {        
-          throw error; // Rethrow the error to be caught in the outer try-catch block
+          throw error; 
         }
       });
       const returnValue=await Promise.all(messagePromises);

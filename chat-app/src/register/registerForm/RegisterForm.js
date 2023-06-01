@@ -5,9 +5,11 @@ import RegisterFormConfirmPassword from "./registerFormConfirmPassword/RegisterF
 import RegisterFormDisplayName from "./registerFormDisplayName/RegisterFormDisplayName";
 import RegisterFormSubmitButton from "./registerFormSubmitButton/RegisterFormSubmitButton";
 import RegisterFormPicture from "./registerFormPicture/RegisterFormPicture";
+import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 function RegisterForm(props) {
+  const [registeredError, setRegisteredError] = useState("");
   const navigate = useNavigate();
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -15,11 +17,8 @@ function RegisterForm(props) {
         if(props.formData["allowedSubmit"]["username"] && props.formData["allowedSubmit"]["password"] && 
             props.formData["allowedSubmit"]["confirm"] && props.formData["allowedSubmit"]["display"] &&
             props.formData["allowedSubmit"]["picture"]){
-        
-            //props.setRegisteredUsers(prevState => [...prevState, {username: props.formData["username"], password: props.formData["password"], picture: props.formData["picture"], display: props.formData["display"], users: []}]);
-            //post request to register user to db
             const data={username:props.formData["username"],password:props.formData["password"],profilePic:(props.formData["picture"]),displayName:props.formData["display"]}
-            const statusRegister= await fetch("http://localhost:50000/api/Users", {
+            const statusRegister= await fetch("/api/Users", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -30,8 +29,7 @@ function RegisterForm(props) {
               navigate('/login');
             }
             else{
-              const element=document.getElementById("registerError");
-              element.textContent="Username already taken."
+              setRegisteredError("username already taken")
             }
     }
   };
@@ -43,6 +41,7 @@ function RegisterForm(props) {
     <RegisterFormConfirmPassword formData={props.formData} setter={props.setFormData}></RegisterFormConfirmPassword>
     <RegisterFormDisplayName formData={props.formData} setter={props.setFormData}></RegisterFormDisplayName>
     <RegisterFormPicture formData={props.formData} setter={props.setFormData}></RegisterFormPicture>
+    <div id="registerError" className="errorField">{registeredError}</div>
     <RegisterFormSubmitButton formData={props.formData} registered = {props.registered} setRegisteredUsers={props.setRegisteredUsers}></RegisterFormSubmitButton>
     </form>
 
