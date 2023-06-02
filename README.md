@@ -5,22 +5,22 @@ This repository contains a chatbot application created using HTML, CSS, Bootstra
 
 ## Description
 The Chat-Application is a web-based chatbot that provides a user-friendly interface for seamless communication. It offers the following features:
-
+<br><br><br>
 💥 <b> Login Page: </b>Users can authenticate themselves by entering their credentials.
 
 💥 <b> Registration Page: </b> New users can create an account by providing the necessary details.
 
 💥 <b> Chat Page: </b>  Once logged in, users can view their contacts and engage in real-time chat conversations.
-
+<br><br><br>
 The frontend is developed using HTML, CSS, and Bootstrap, with JavaScript for interactive functionality. React is utilized as the frontend framework for building reusable UI components. The backend is powered by Node.js and Express.js, providing the server-side logic and API endpoints. MongoDB serves as the database for storing user information and chat data. The server also serves the static files for the React application, eliminating the need for a separate build step.
-
+<br><br>
 ## Repository Description
 Inside the cloned repository, you will find two additional folders, namely "chat-app" and "MVCnodeJS."
-
+<br><br>
 <b>chat-app:</b> This folder contains all the React application code and related files. It is responsible for the frontend of the chatbot application. Within the "chat-app" folder, you can expect to find components, styles, scripts, and other assets necessary for building the user interface of the chatbot.
-
+<br><br>
 <b>MVCnodeJS:</b> This folder contains all the server-side code for the chatbot application, following the Model-View-Controller (MVC) architecture. It encompasses the backend logic required for handling user authentication, managing chat conversations, and interacting with the database. You can expect to find files related to models, views, controllers, routes, and any additional server configuration or utility files within the "MVCnodeJS" folder.
-
+<br><br>
 ## Screenshots
 
 ### Register page
