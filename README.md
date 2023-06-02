@@ -1,7 +1,7 @@
 # Chat-Application
 
 ## Introduction
-This repository contains a chatbot application created using HTML, CSS, Bootstrap, JS, and the React framework. The chatbot allows users to register, log in, and engage in chat conversations with other contacts. The application utilizes a client-server architecture, with the server running on port 50000 and storing data in a MongoDB database. The static files for the React application are served by the server itself.
+This repository contains a chatbot application created using HTML, CSS, Bootstrap, JS, and the React framework. The chatbot allows users to register, log in, and engage in chat conversations with other contacts. The application utilizes a client-server architecture, with the server running on port 3000 and storing data in a MongoDB database. The static files for the React application are served by the server itself.
 
 ## Description
 The Chat-Application is a web-based chatbot that provides a user-friendly interface for seamless communication. It offers the following features:
@@ -49,7 +49,7 @@ Inside the cloned repository, you will find two additional folders, namely "chat
 8. Navigate to the folder of the server by executing the command ``` cd MVCnodeJS ```
 9. execute the command ``` npm install ``` to download node_modules folder for backend Node.js application- the server.
 10. execute the command ``` npm start ``` to start the server.
-11. Access the chatbot interface in your browser by visiting http://localhost:50000
+11. Access the chatbot interface in your browser by visiting http://localhost:3000
 12. Register a new account, log in, add contacts and start chatting with them.
 
 
