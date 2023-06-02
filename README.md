@@ -41,12 +41,16 @@ Inside the cloned repository, you will find two additional folders, namely "chat
     ```
     git clone https://github.com/OzAmoyal/chatAss3
     ```
-4. Navigate to the folder where you cloned the repository.
-5. Navigate to the folder of the server by executing the command ``` cd MVCnodeJS ```
-6. execute the command ``` npm install ``` to download node_modules folder.
-7. execute the command ``` npm start ``` to start the server.
-8. Access the chatbot interface in your browser by visiting http://localhost:50000
-9. Register a new account, log in, add contacts and start chatting with them.
+3. Navigate to the folder where you cloned the repository - chatAss3
+4. execute the command ``` npm install ``` to download node_modules folder for this project.
+5. Navigate to the React folder by executing the command ``` cd chat-app ```
+6. execute the command ``` npm install ``` to download node_modules folder for the frontend React application.
+7. Return to the main repository folder by executing the command ``` cd .. ```
+8. Navigate to the folder of the server by executing the command ``` cd MVCnodeJS ```
+9. execute the command ``` npm install ``` to download node_modules folder for backend Node.js application- the server.
+10. execute the command ``` npm start ``` to start the server.
+11. Access the chatbot interface in your browser by visiting http://localhost:50000
+12. Register a new account, log in, add contacts and start chatting with them.
 
 
 ## Built With
