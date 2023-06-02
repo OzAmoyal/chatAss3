@@ -1,15 +1,18 @@
 # Chat-Application
-3
 
 ## Introduction
-This repository contains a chatbot created using HTML, CSS, Bootstrap and JS, and using React framework. The chatbot has three pages: login.html, register.html, and chat.html, which are consist of many react components, all with their corresponding CSS, JS files.
+This repository contains a chatbot application created using HTML, CSS, Bootstrap, JS, and the React framework. The chatbot allows users to register, log in, and engage in chat conversations with other contacts. The application utilizes a client-server architecture, with the server running on port 50000 and storing data in a MongoDB database. The static files for the React application are served by the server itself.
 
-💥 Login Page.
+## Description
+The Chat-Application is a web-based chatbot that provides a user-friendly interface for seamless communication. It offers the following features:
 
-💥 Registration Page.
+💥 <b> Login Page: </b>Users can authenticate themselves by entering their credentials.
 
-💥 Chat Page.
+💥 <b> Registration Page: </b> New users can create an account by providing the necessary details.
 
+💥 <b> Chat Page: </b>  Once logged in, users can view their contacts and engage in real-time chat conversations.
+
+The frontend is developed using HTML, CSS, and Bootstrap, with JavaScript for interactive functionality. React is utilized as the frontend framework for building reusable UI components. The backend is powered by Node.js and Express.js, providing the server-side logic and API endpoints. MongoDB serves as the database for storing user information and chat data. The server also serves the static files for the React application, eliminating the need for a separate build step
 
 ## Screenshots
 
@@ -29,15 +32,14 @@ This repository contains a chatbot created using HTML, CSS, Bootstrap and JS, an
 
 2. Clone the repository to your local machine:
     ```
-    git clone https://github.com/TopazAvraham/chatAss2
+    git clone https://github.com/OzAmoyal/chatAss3
     ```
 4. Navigate to the folder where you cloned the repository.
-5. Navigate to the folder of the chat-app with all the files by executing the command ``` cd chat-app ```
+5. Navigate to the folder of the server by executing the command ``` cd MVCnodeJS ```
 6. execute the command ``` npm install ``` to download node_modules folder.
 7. execute the command ``` npm start ``` to start the development server.
-8. You should now see the chatbot interface in your browser window.
-9. You can now register to the app, login, and add other contact to chat with. Enjoy!
-
+8. Access the chatbot interface in your browser by visiting http://localhost:50000
+9. Register a new account, log in, add contacts and start chatting with them.
 
 
 ## Built With
@@ -45,7 +47,10 @@ This repository contains a chatbot created using HTML, CSS, Bootstrap and JS, an
 - HTML
 - CSS
 - Bootstrap
-- JS
+- JavaScript
 - React
+- Node.js
+- Express.js
+- MongoDB
 
 <br />
