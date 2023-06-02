@@ -14,6 +14,13 @@ The Chat-Application is a web-based chatbot that provides a user-friendly interf
 
 The frontend is developed using HTML, CSS, and Bootstrap, with JavaScript for interactive functionality. React is utilized as the frontend framework for building reusable UI components. The backend is powered by Node.js and Express.js, providing the server-side logic and API endpoints. MongoDB serves as the database for storing user information and chat data. The server also serves the static files for the React application, eliminating the need for a separate build step.
 
+## Repository Description
+Inside the cloned repository, you will find two additional folders, namely "chat-app" and "MVCnodeJS."
+
+chat-app: This folder contains all the React application code and related files. It is responsible for the frontend of the chatbot application. Within the "chat-app" folder, you can expect to find components, styles, scripts, and other assets necessary for building the user interface of the chatbot.
+
+MVCnodeJS: This folder contains all the server-side code for the chatbot application, following the Model-View-Controller (MVC) architecture. It encompasses the backend logic required for handling user authentication, managing chat conversations, and interacting with the database. You can expect to find files related to models, views, controllers, routes, and any additional server configuration or utility files within the "MVCnodeJS" folder.
+
 ## Screenshots
 
 ### Register page
