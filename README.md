@@ -12,7 +12,7 @@ The Chat-Application is a web-based chatbot that provides a user-friendly interf
 
 💥 <b> Chat Page: </b>  Once logged in, users can view their contacts and engage in real-time chat conversations.
 
-The frontend is developed using HTML, CSS, and Bootstrap, with JavaScript for interactive functionality. React is utilized as the frontend framework for building reusable UI components. The backend is powered by Node.js and Express.js, providing the server-side logic and API endpoints. MongoDB serves as the database for storing user information and chat data. The server also serves the static files for the React application, eliminating the need for a separate build step
+The frontend is developed using HTML, CSS, and Bootstrap, with JavaScript for interactive functionality. React is utilized as the frontend framework for building reusable UI components. The backend is powered by Node.js and Express.js, providing the server-side logic and API endpoints. MongoDB serves as the database for storing user information and chat data. The server also serves the static files for the React application, eliminating the need for a separate build step.
 
 ## Screenshots
 
@@ -37,7 +37,7 @@ The frontend is developed using HTML, CSS, and Bootstrap, with JavaScript for in
 4. Navigate to the folder where you cloned the repository.
 5. Navigate to the folder of the server by executing the command ``` cd MVCnodeJS ```
 6. execute the command ``` npm install ``` to download node_modules folder.
-7. execute the command ``` npm start ``` to start the development server.
+7. execute the command ``` npm start ``` to start the server.
 8. Access the chatbot interface in your browser by visiting http://localhost:50000
 9. Register a new account, log in, add contacts and start chatting with them.
 
