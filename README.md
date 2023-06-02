@@ -17,9 +17,9 @@ The frontend is developed using HTML, CSS, and Bootstrap, with JavaScript for in
 ## Repository Description
 Inside the cloned repository, you will find two additional folders, namely "chat-app" and "MVCnodeJS."
 
-chat-app: This folder contains all the React application code and related files. It is responsible for the frontend of the chatbot application. Within the "chat-app" folder, you can expect to find components, styles, scripts, and other assets necessary for building the user interface of the chatbot.
+<b>chat-app:</b> This folder contains all the React application code and related files. It is responsible for the frontend of the chatbot application. Within the "chat-app" folder, you can expect to find components, styles, scripts, and other assets necessary for building the user interface of the chatbot.
 
-MVCnodeJS: This folder contains all the server-side code for the chatbot application, following the Model-View-Controller (MVC) architecture. It encompasses the backend logic required for handling user authentication, managing chat conversations, and interacting with the database. You can expect to find files related to models, views, controllers, routes, and any additional server configuration or utility files within the "MVCnodeJS" folder.
+<b>MVCnodeJS:</b> This folder contains all the server-side code for the chatbot application, following the Model-View-Controller (MVC) architecture. It encompasses the backend logic required for handling user authentication, managing chat conversations, and interacting with the database. You can expect to find files related to models, views, controllers, routes, and any additional server configuration or utility files within the "MVCnodeJS" folder.
 
 ## Screenshots
 
@@ -51,13 +51,20 @@ MVCnodeJS: This folder contains all the server-side code for the chatbot applica
 
 ## Built With
 
+### Frontend
 - HTML
 - CSS
 - Bootstrap
 - JavaScript
 - React
+
+The frontend is developed using HTML, CSS, Bootstrap, and JavaScript. React is used as the frontend framework for building reusable UI components, managing state, and handling user interactions.
+
+### Backend (MVC)
 - Node.js
 - Express.js
 - MongoDB
+
+The backend of the application follows the Model-View-Controller (MVC) architectural pattern and is built using Node.js, Express.js, and MongoDB.
 
 <br />
